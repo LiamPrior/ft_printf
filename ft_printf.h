@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by ckrommen          #+#    #+#             */
-/*   Updated: 2018/01/17 16:26:47 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/17 19:54:53 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 # include <stdbool.h>
 
-typedef struct	s_flag
+typedef struct	s_flags
 {
 	bool	plus;
 	bool	minus;
@@ -33,6 +33,6 @@ typedef struct	s_flag
 	int		argument;
 	int		ret;
 	int		len;
-}				t_flag;
+}				t_flags;
 
 #endif

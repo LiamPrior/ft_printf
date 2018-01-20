@@ -6,81 +6,63 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by ckrommen          #+#    #+#             */
-/*   Updated: 2018/01/17 19:09:49 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/20 11:59:59 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_remalloc(char *str, int size)
+// char *ft_remalloc(char *str, int size)
+// {
+// 	char *new;
+
+// 	if (str)
+// 	{
+// 		new = ft_strnew(ft_strlen(str) + size);
+// 		ft_memset((void *)new, '.', ft_strlen(str) + (size - 1));
+// 		new = ft_strcpy(new, str);
+// 		ft_strdel(&str);
+// 		return (new);
+// 	}
+// 	return (NULL);
+// }
+
+void	build_(t_flags *sack)
 {
-	char *new;
-
-	if (str)
-	{
-		new = ft_strnew(ft_strlen(str) + size);
-		ft_memset((void *)new, '.', ft_strlen(str) + (size - 1));
-		new = ft_strcpy(new, str);
-		ft_strdel(&str);
-		return (new);
-	}
-	return (NULL);
-}
-
-char	*parse_flags2(char *flag, va_list ap)
-{
-	if (*flag == 'u')
-		return ("UNSIGNED_INT");
-	else if (*flag == 'U')
-		return ("UNSIGNED_INT");
-	else if (*flag == 'x')
-		return (ft_itoa(va_arg(ap, int)));
-	else if (*flag == 'X')
-		return (ft_itoa(va_arg(ap, int)));
-	else if (*flag == 'c')
-		return (va_arg(ap, char *));
-	else if (*flag == 'C')
-		return ("BROKEN");
-	else
-		return ("END");
-}
-
-
-char	*parse_flags(char *flag, va_list ap)
-{
-	if (*flag == 's')
-		return (va_arg(ap, char *));
-	else if (*flag == 'S')
-		return ("");
-	else if (*flag == 'p')
-		return (va_arg(ap, char *));
-	else if (*flag == 'd')
-		return (ft_itoa(va_arg(ap, int)));
-	else if (*flag == 'D')
-		return ("LONG_INT");
-	else if (*flag == 'i')
-		return (ft_itoa(va_arg(ap, int)));
-	else if (*flag == 'o')
-		return (ft_itoa(va_arg(ap, int)));
-	else if (*flag == 'O')
-		return ("LONG_INT");
-	else
-		return (parse_flags2(flag, ap));
+	sack->plus = 0;
+	sack->space = 0;
+	sack->hash = 0;
+	sack->zero = 0;
+	sack->minus = 0;
+	sack->star = 0;
+	sack->type = 0;
+	sack->width = 0;
+	sack->precision = 0;
+	sack->argument = 0;
+	sack->ret = 0;
+	sack->len = 0;
 }
 
 char	*parse_format(va_list ap, char *format)
 {
-	t_flags sack;
+	t_flags tools;
 	int i;
 	int start;
 
 	i = 0;
-	while (format)
+	start = 0;
+	while (format[i])
 	{
-		if (format[i] == "%")
+		if (format[i] == '%')
 		{
-			
-			ft_putchar(format[i])
+			build_sack(&tools);
+			write (1, format, i - start);
+			// while (format[start++] < format[i])
+			// 	ft_putchar(format[start]);
+			i += 1;
+			parse_flags(format, &i, &tools, ap);
+			parse_conv(format, ap);
+			start = i;
 		}
 	}
 }
@@ -88,7 +70,6 @@ char	*parse_format(va_list ap, char *format)
 char *ft_printf(const char *format, ...)
 {
 	va_list		ap;
-	char buffer[1024];
 
 	va_start(ap, str);
 	if (!parse_format(ap, (char *)format))
@@ -104,6 +85,7 @@ int main(void)
 	ft_printf("%s%s%", str);
 	return 0;
 }
+
 
 /*
 char	1 byte	-128 to 127 or 0 to 255
@@ -152,4 +134,11 @@ No argument expected.
 ** 4 = ll (long long int/unsigned long long int)
 ** 5 = j (intmax_t/uintmax_t)
 ** 6 = z (size_t/ssize_t)
+
+\\
+||The most important is a way to specify
+||how many digits appear after the decimal point.
+||This number is called the precision.
+//
+
 */
