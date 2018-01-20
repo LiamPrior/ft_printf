@@ -6,12 +6,12 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/20 13:37:49 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/20 14:47:55 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+.0
 
 void    width(char *format, int *i, t_flags *tools)
 {
@@ -27,7 +27,7 @@ void    width(char *format, int *i, t_flags *tools)
     }
 }
 
-char *ft_flags(char *format, int *i, t_flags *tools)
+void    ft_flags(char *format, int *i, t_flags *tools)
 {
     while (format[*i] != '\0' && (format[*i] == '-' || format[*i] == '+' || 
             format == '0' ||  format == '#' ||  format == ' '))
@@ -42,12 +42,12 @@ char *ft_flags(char *format, int *i, t_flags *tools)
             tools->positive = 1;
             tools->space = 0;
         }
-        if (format[*i] == ' ' && tools->positive == 0;)
-            tools->space == 1;
-        if (format[*i] == '#')
-            tools->hash == 1;
-        if (format[*i] == '0' && tools->negative == 0)
-            tools->zero == 1;
+        if (format[*i] == ' ' && tools->positive == 0)
+            tools->space = 1;
+        else if (format[*i] == '#')
+            tools->hash = 1;
+        else if (format[*i] == '0' && tools->negative == 0)
+            tools->zero = 1;
         *i++;//*i += 1;
     }
 }
