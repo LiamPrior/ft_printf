@@ -6,21 +6,40 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/21 17:03:57 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/21 21:06:34 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+// void	precision(char *f, int *i, t_flags *bag, va_list ap)
+// {
+// 	char	*ptr;
+
+// 	ptr = f;
+// 	PRECISION = 0;
+// 	if (f[*i] != '.')
+// 		return ;
+// 	*i += 1;
+// 	IF_PREC = true;
+// 	while (f[*i] != '\0' && (f[*i] == '-' || f[*i] == '*' ||
+// 			(f[*i] > 47 && f[*i] < 58)))
+// 	{
+// 	    ptr += *i;
+// 		PRECISION = ft_atoi(ptr);
+// 			*i += 1;
+// 	}
+// }
+
 void    width(char *format, int *i, t_flags *tools)
 {
-    char *ptr;
+    char *tmp;
 
     ptr = format;
     while (ft_isdigit(format[*i]) && format[*i] != '\0')
     {
         format += *i;
-        tools->width = ft_atoi(ptr);
+        tools->width = ft_atoi(tmp);
         while (ft_isdigit(format[*i]))
             *i++;//*i += 1;
     }
@@ -80,4 +99,24 @@ void ft_args(char *format, int *i, t_flags *tools)
                 }
                 i += 1;
             }
+}
+
+void    ft_prec(char *format, int *i, va_list ap, t_flags *tools)
+{
+    char *tmp;
+
+    tmp = format;
+    if(format[*i] == '.')
+        continue ;
+    else
+        return ;
+    *i++;// *i += 1;
+	while (format[*i] != '\0' && (format[*i] == '-' || 
+            isdigit(format[*i])))
+    {
+        tmp += *i;
+        while (isdigit(tmp[*i]))
+            *i++;// *i += 1;
+        tools->prec = atoi(tmp);
+    }
 }
