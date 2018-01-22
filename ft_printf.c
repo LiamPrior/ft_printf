@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by ckrommen          #+#    #+#             */
-/*   Updated: 2018/01/21 18:03:21 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/21 20:43:19 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	build_(t_flags *sack)
 	sack->negative = 0;
 	sack->brand = 0;
 	sack->width = 0;
-	sack->precision = 0;
+	sack->prec = 0;
 	sack->arg = 0;
 	sack->ret = 0;
 	sack->len = 0;
