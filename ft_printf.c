@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by ckrommen          #+#    #+#             */
-/*   Updated: 2018/01/20 11:59:59 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/21 18:03:21 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,15 @@
 
 void	build_(t_flags *sack)
 {
-	sack->plus = 0;
+	sack->positive = 0;
 	sack->space = 0;
 	sack->hash = 0;
 	sack->zero = 0;
-	sack->minus = 0;
-	sack->star = 0;
-	sack->type = 0;
+	sack->negative = 0;
+	sack->brand = 0;
 	sack->width = 0;
 	sack->precision = 0;
-	sack->argument = 0;
+	sack->arg = 0;
 	sack->ret = 0;
 	sack->len = 0;
 }
@@ -88,43 +87,44 @@ int main(void)
 
 
 /*
-char	1 byte	-128 to 127 or 0 to 255
-unsigned char	1 byte	0 to 255
-signed char	1 byte	-128 to 127
-int	2 or 4 bytes	-32,768 to 32,767 or -2,147,483,648 to 2,147,483,647
-unsigned int	2 or 4 bytes	0 to 65,535 or 0 to 4,294,967,295
-short	2 bytes	-32,768 to 32,767
-unsigned short	2 bytes	0 to 65,535
-long	4 bytes	-2,147,483,648 to 2,147,483,647
-unsigned long	4 bytes	0 to 4,294,967,295
-float	4 byte	1.2E-38 to 3.4E+38	6 decimal places
-double	8 byte	2.3E-308 to 1.7E+308	15 decimal places
-long double	10 byte	3.4E-4932 to 1.1E+4932	19 decimal places
-unsigned long long 18,446,744,073,709,551,615.
-\a	audible alert
-\b	backspace
-\f	form feed
-\n	newline, or linefeed
-\r	carriage return
-\t	tab
-\v	vertical tab
-\\	backslash
-
-
-%d %i     Decimal signed integer.
-%o      Octal integer.
-%x %X     Hex integer.
-%u      Unsigned integer.
-%c      Character.
-%s      String. See below.
-%f      double
-%e %E     double.
-%g %G     double.
-%p        pointer.
-%n      Number of characters written by this printf.
-No argument expected.  
-% %%. No argument expected.
+**char	1 byte	-128 to 127 or 0 to 255
+**unsigned char	1 byte	0 to 255
+**signed char	1 byte	-128 to 127
+**int	2 or 4 bytes	-32,768 to 32,767 or -2,147,483,648 to 2,147,483,647
+**unsigned int	2 or 4 bytes	0 to 65,535 or 0 to 4,294,967,295
+**short	2 bytes	-32,768 to 32,767
+**unsigned short	2 bytes	0 to 65,535
+**long	4 bytes	-2,147,483,648 to 2,147,483,647
+**unsigned long	4 bytes	0 to 4,294,967,295
+**float	4 byte	1.2E-38 to 3.4E+38	6 decimal places
+**double	8 byte	2.3E-308 to 1.7E+308	15 decimal places
+**long double	10 byte	3.4E-4932 to 1.1E+4932	19 decimal places
+**unsigned long long 18,446,744,073,709,551,615.
+**\a	audible alert
+**\b	backspace
+**\f	form feed
+**\n	newline, or linefeed
+**\r	carriage return
+**\t	tab
+**\v	vertical tab
+**\\	backslash
+**
+**
+**%d %i     Decimal signed integer.
+**%o      Octal integer.
+**%x %X     Hex integer.
+**%u      Unsigned integer.
+**%c      Character.
+**%s      String. See below.
+**%f      double
+**%e %E     double.
+**%g %G     double.
+**%p        pointer.
+**%n      Number of characters written by this printf.
+**No argument expected.  
+**% %%. No argument expected.
 */
+
 /*
 ** Length code chart:
 ** 0 = unset
@@ -134,11 +134,9 @@ No argument expected.
 ** 4 = ll (long long int/unsigned long long int)
 ** 5 = j (intmax_t/uintmax_t)
 ** 6 = z (size_t/ssize_t)
-
-\\
-||The most important is a way to specify
-||how many digits appear after the decimal point.
-||This number is called the precision.
-//
-
+**\\
+**||The most important is a way to specify
+**||how many digits appear after the decimal point.
+**||This number is called the precision.
+**//
 */
