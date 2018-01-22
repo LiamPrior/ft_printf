@@ -6,30 +6,11 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/21 21:06:34 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/21 21:07:26 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// void	precision(char *f, int *i, t_flags *bag, va_list ap)
-// {
-// 	char	*ptr;
-
-// 	ptr = f;
-// 	PRECISION = 0;
-// 	if (f[*i] != '.')
-// 		return ;
-// 	*i += 1;
-// 	IF_PREC = true;
-// 	while (f[*i] != '\0' && (f[*i] == '-' || f[*i] == '*' ||
-// 			(f[*i] > 47 && f[*i] < 58)))
-// 	{
-// 	    ptr += *i;
-// 		PRECISION = ft_atoi(ptr);
-// 			*i += 1;
-// 	}
-// }
 
 void    width(char *format, int *i, t_flags *tools)
 {
