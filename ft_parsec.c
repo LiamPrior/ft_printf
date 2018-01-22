@@ -6,48 +6,50 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 15:36:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/20 11:59:58 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/21 20:16:01 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*parse_conv2(char *flag, va_list ap)
+void ft_type2(char format, t_flags *tools)
 {
-	if (*flag == 'u')
-		return ("UNSIGNED_INT");
-	else if (*flag == 'U')
-		return ("UNSIGNED_INT");
-	else if (*flag == 'x')
-		return (ft_itoa(va_arg(ap, int)));
-	else if (*flag == 'X')
-		return (ft_itoa(va_arg(ap, int)));
-	else if (*flag == 'c')
-		return (va_arg(ap, char *));
-	else if (*flag == 'C')
-		return ("BROKEN");
+	 if (format == 'X')
+		tools->brand = format;
+	else if (format == 'c')
+		tools->brand = format;
+	else if (format == 'C')
+		tools->brand = format;
+	else if (format == '%')
+		tools->brand = format;
 	else
-		return ("END");
+		tools->brand = -1;
 }
 
-char	*parse_conv(char *flag, va_list ap)
+void ft_type(char format, t_flags *tools)
 {
-	if (*flag == 's')
-		return (va_arg(ap, char *));
-	else if (*flag == 'S')
-		return ("");
-	else if (*flag == 'p')
-		return (va_arg(ap, char *));
-	else if (*flag == 'd')
-		return (ft_itoa(va_arg(ap, int)));
-	else if (*flag == 'D')
-		return ("LONG_INT");
-	else if (*flag == 'i')
-		return (ft_itoa(va_arg(ap, int)));
-	else if (*flag == 'o')
-		return (ft_itoa(va_arg(ap, int)));
-	else if (*flag == 'O')
-		return ("LONG_INT");
+	if (format == 's')
+		tools->brand = format;
+	else if (format == 'S')
+		tools->brand = format;
+	else if (format == 'p')
+		tools->brand = format;
+	else if (format == 'd')
+		tools->brand = format;
+	else if (format == 'D')
+		tools->brand = format;
+	else if (format == 'i')
+		tools->brand = format;
+	else if (format == 'o')
+		tools->brand = format;
+	else if (format == 'O')
+		tools->brand = format;
+	else if (format == 'u')
+		tools->brand = format;
+	else if (format == 'U')
+		tools->brand = format;
+	else if (format == 'x')
+		tools->brand = format;
 	else
-		return (parse_flags2(flag, ap));
+		ft_type2(format, tools);
 }
