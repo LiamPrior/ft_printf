@@ -6,13 +6,13 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/22 10:32:34 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/22 11:37:49 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    width(char *format, int *i, t_flags *tools)
+void    ft_width(char *format, int *i, t_flags *tools)
 {
     char *ptr;
 
@@ -22,14 +22,14 @@ void    width(char *format, int *i, t_flags *tools)
         format += *i;
         tools->width = ft_atoi(ptr);
         while (ft_isdigit(format[*i]))
-            *i++;//*i += 1;
+            (*i)++;//*i += 1;
     }
 }
 
 void    ft_flags(char *format, int *i, t_flags *tools)
 {
     while (format[*i] != '\0' && (format[*i] == '-' || format[*i] == '+' || 
-            format == '0' ||  format == '#' ||  format == ' '))
+            format[*i] == '0' ||  format[*i] == '#' ||  format[*i] == ' '))
     {
         if (format[*i] == '-')
         {
@@ -47,7 +47,7 @@ void    ft_flags(char *format, int *i, t_flags *tools)
             tools->hash = 1;
         else if (format[*i] == '0' && tools->negative == 0)
             tools->zero = 1;
-        *i++;//*i += 1;
+        (*i)++;//*i += 1;
     }
 }
 
@@ -78,22 +78,21 @@ void ft_args(char *format, int *i, t_flags *tools)
             }
 }
 
-void    ft_prec(char *format, int *i, va_list ap, t_flags *tools)
+void    ft_prec(char *format, int *i, t_flags *tools)
 {
     char *tmp;
 
     tmp = format;
     if(format[*i] == '.')
-        continue ;
+        (*i)++;//this might not work!
     else
         return ;
-    *i++;// *i += 1;
 	while (format[*i] != '\0' && (format[*i] == '-' || 
-            isdigit(format[*i])))
+            ft_isdigit(format[*i])))
     {
         tmp += *i;
-        while (isdigit(tmp[*i]))
-            *i++;// *i += 1;
-        tools->prec = atoi(tmp);
+        while (ft_isdigit(tmp[*i]))
+            (*i)++;// *i += 1;
+        tools->prec = ft_atoi(tmp);
     }
 }

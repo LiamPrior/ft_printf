@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/21 22:13:52 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/22 12:04:11 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 // 	return (NULL);
 // }
 
-void	build_tools(t_flags *tools)
+void	ft_build_tools(t_flags *tools)
 {
 	tools->positive = 0;
 	tools->space = 0;
@@ -42,7 +42,7 @@ void	build_tools(t_flags *tools)
 	tools->len = 0;
 }
 
-char	*parse_format(va_list ap, char *format)
+char	*ft_parse_format(char *format)
 {
 	t_flags tools;
 	int i;
@@ -54,25 +54,27 @@ char	*parse_format(va_list ap, char *format)
 	{
 		if (format[i] == '%')
 		{
-			build_tools(&tools);
+			ft_build_tools(&tools);
 			write (1, format, i - start);
 			// while (format[start++] < format[i])
 			// 	ft_putchar(format[start]);
 			i += 1;
-			parse_flags(format, &i, &tools, ap);
-			parse_conv(format, ap);
+			ft_parse_flags(format, &i, &tools);
+			//ft_parse_conv(format, ap);
 			start = i;
 		}
 	}
+	return (0);
 }
 
 char *ft_printf(const char *format, ...)
 {
-	va_list		ap;
+	//va_list		ap;
 
-	va_start(ap, str);
-	if (!parse_format(ap, (char *)format))
+	//va_start(ap, str);
+	if (!ft_parse_format((char *)format))
 		return (0);
+	return ("swags");
 }
 
 int main(void)
@@ -134,9 +136,9 @@ int main(void)
 ** 4 = ll (long long int/unsigned long long int)
 ** 5 = j (intmax_t/uintmax_t)
 ** 6 = z (size_t/ssize_t)
-**\\
+**
 **||The most important is a way to specify
 **||how many digits appear after the decimal point.
 **||This number is called the precision.
-**//
+**
 */
