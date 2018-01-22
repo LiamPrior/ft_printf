@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/18 16:30:54 by ckrommen          #+#    #+#             */
-/*   Updated: 2018/01/21 20:43:19 by lprior           ###   ########.fr       */
+/*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
+/*   Updated: 2018/01/21 22:13:52 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@
 // 	return (NULL);
 // }
 
-void	build_(t_flags *sack)
+void	build_tools(t_flags *tools)
 {
-	sack->positive = 0;
-	sack->space = 0;
-	sack->hash = 0;
-	sack->zero = 0;
-	sack->negative = 0;
-	sack->brand = 0;
-	sack->width = 0;
-	sack->prec = 0;
-	sack->arg = 0;
-	sack->ret = 0;
-	sack->len = 0;
+	tools->positive = 0;
+	tools->space = 0;
+	tools->hash = 0;
+	tools->zero = 0;
+	tools->negative = 0;
+	tools->brand = 0;
+	tools->width = 0;
+	tools->prec = 0;
+	tools->arg = 0;
+	tools->ret = 0;
+	tools->len = 0;
 }
 
 char	*parse_format(va_list ap, char *format)
@@ -54,7 +54,7 @@ char	*parse_format(va_list ap, char *format)
 	{
 		if (format[i] == '%')
 		{
-			build_sack(&tools);
+			build_tools(&tools);
 			write (1, format, i - start);
 			// while (format[start++] < format[i])
 			// 	ft_putchar(format[start]);

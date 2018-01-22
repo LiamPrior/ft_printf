@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/21 21:07:26 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/22 10:32:34 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void    width(char *format, int *i, t_flags *tools)
 {
-    char *tmp;
+    char *ptr;
 
     ptr = format;
     while (ft_isdigit(format[*i]) && format[*i] != '\0')
     {
         format += *i;
-        tools->width = ft_atoi(tmp);
+        tools->width = ft_atoi(ptr);
         while (ft_isdigit(format[*i]))
             *i++;//*i += 1;
     }
@@ -33,7 +33,7 @@ void    ft_flags(char *format, int *i, t_flags *tools)
     {
         if (format[*i] == '-')
         {
-            tools->negative = 1;//this is because 
+            tools->negative = 1;
             tools->zero = 0;
         }
         else if (format[*i] == '+')
@@ -50,10 +50,6 @@ void    ft_flags(char *format, int *i, t_flags *tools)
         *i++;//*i += 1;
     }
 }
-
-/*
-** For this one 1 is z, 2 os j, 3 is h, 5 is hh, 4 is l, 6 is ll.
-*/
 
 void ft_args(char *format, int *i, t_flags *tools)
 {
