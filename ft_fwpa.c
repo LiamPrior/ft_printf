@@ -6,34 +6,11 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/21 16:18:36 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/21 17:03:57 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// void	arguments(char *f, int *i, t_flags *bag)
-// {
-// 	while (f[*i] != '\0' && (f[*i] == 'h' || f[*i] == 'l' || f[*i] == 'z' ||
-// 			f[*i] == 'j' || f[*i] == 'q'))
-// 	{
-// 		if (f[*i] == 'h' && ARGUMENT == 1)
-// 			ARGUMENT = 2;
-// 		else if (f[*i] == 'h' && ARGUMENT != 6 && ARGUMENT != 5)
-// 			ARGUMENT = 1;
-// 		else if (f[*i] == 'l' && ARGUMENT == 3)
-// 			ARGUMENT = 4;
-// 		else if (f[*i] == 'l')
-// 			ARGUMENT = 3;
-// 		else if (f[*i] == 'j')
-// 			ARGUMENT = 5;
-// 		else if (f[*i] == 'z')
-// 			ARGUMENT = 6;
-// 		else if (f[*i] == 'q')
-// 			ARGUMENT = 7;
-// 		*i += 1;
-// 	}
-// }
 
 void    width(char *format, int *i, t_flags *tools)
 {
@@ -56,7 +33,7 @@ void    ft_flags(char *format, int *i, t_flags *tools)
     {
         if (format[*i] == '-')
         {
-            tools->negative = 1;
+            tools->negative = 1;//this is because 
             tools->zero = 0;
         }
         else if (format[*i] == '+')

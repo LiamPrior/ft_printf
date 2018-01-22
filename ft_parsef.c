@@ -6,24 +6,11 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 14:21:44 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/21 17:21:33 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/21 17:57:02 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// void	type(char t, t_flags *bag)
-// {
-// 	if (t == 'd' || t == 's' || t == 'S' || t == 'p' || t == 'D' ||
-// 		t == 'i' || t == 'o' || t == 'O' || t == 'u' || t == 'X' ||
-// 		t == 'U' || t == 'x' || t == 'c' || t == 'C' || t == 'E' ||
-// 		t == 'e' || t == 'f' || t == 'F' || t == '%' || t == 'b')
-// 		TYPE = t;
-// 	else
-// 		TYPE = -1;
-// }
-
-//sSpdDioOuUxXcC
 
 void ft_type2(char format, t_flags *tools)
 {

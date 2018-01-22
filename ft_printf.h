@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by ckrommen          #+#    #+#             */
-/*   Updated: 2018/01/17 19:54:53 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/21 17:14:08 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,15 @@
 
 typedef struct	s_flags
 {
-	bool	plus;
-	bool	minus;
+	bool	positive;
+	bool	negative;
 	bool	zero;
 	bool	space;
 	bool	hash;
-	bool	star;
-	char	type;
+	char	brand;
 	int		width;
 	int		precision;
-	int		argument;
+	int		arg;
 	int		ret;
 	int		len;
 }				t_flags;
