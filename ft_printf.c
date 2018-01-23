@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/22 12:04:11 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/22 18:26:55 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ void	ft_build_tools(t_flags *tools)
 char	*ft_parse_format(char *format)
 {
 	t_flags tools;
+	// t_flags *tools;
 	int i;
 	int start;
 
 	i = 0;
 	start = 0;
+	// tools = (t_flags *)malloc(t_flags);
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -63,6 +65,8 @@ char	*ft_parse_format(char *format)
 			//ft_parse_conv(format, ap);
 			start = i;
 		}
+		if (format[i] != '\0')
+			i++;
 	}
 	return (0);
 }
@@ -83,7 +87,7 @@ int main(void)
 	
 	str = ft_strnew(7);
 	str = "string\0";
-	ft_printf("%s%s%", str);
+	ft_printf("hello %d\n", 12345667890);
 	return 0;
 }
 

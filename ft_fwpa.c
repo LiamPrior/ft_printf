@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/22 11:37:49 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/22 13:56:37 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    ft_width(char *format, int *i, t_flags *tools)
         format += *i;
         tools->width = ft_atoi(ptr);
         while (ft_isdigit(format[*i]))
-            (*i)++;//*i += 1;
+            (*i)++;
     }
 }
 
@@ -47,7 +47,7 @@ void    ft_flags(char *format, int *i, t_flags *tools)
             tools->hash = 1;
         else if (format[*i] == '0' && tools->negative == 0)
             tools->zero = 1;
-        (*i)++;//*i += 1;
+        (*i)++;
     }
 }
 
@@ -74,7 +74,7 @@ void ft_args(char *format, int *i, t_flags *tools)
                     else
                         tools->arg = 4;
                 }
-                i += 1;
+                (*i)++;
             }
 }
 
@@ -84,7 +84,7 @@ void    ft_prec(char *format, int *i, t_flags *tools)
 
     tmp = format;
     if(format[*i] == '.')
-        (*i)++;//this might not work!
+        (*i)++;
     else
         return ;
 	while (format[*i] != '\0' && (format[*i] == '-' || 
@@ -92,7 +92,7 @@ void    ft_prec(char *format, int *i, t_flags *tools)
     {
         tmp += *i;
         while (ft_isdigit(tmp[*i]))
-            (*i)++;// *i += 1;
+            (*i)++;
         tools->prec = ft_atoi(tmp);
     }
 }
