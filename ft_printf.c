@@ -6,26 +6,11 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/22 18:26:55 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/26 18:00:05 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// char *ft_remalloc(char *str, int size)
-// {
-// 	char *new;
-
-// 	if (str)
-// 	{
-// 		new = ft_strnew(ft_strlen(str) + size);
-// 		ft_memset((void *)new, '.', ft_strlen(str) + (size - 1));
-// 		new = ft_strcpy(new, str);
-// 		ft_strdel(&str);
-// 		return (new);
-// 	}
-// 	return (NULL);
-// }
 
 void	ft_build_tools(t_flags *tools)
 {
@@ -40,44 +25,50 @@ void	ft_build_tools(t_flags *tools)
 	tools->arg = 0;
 	tools->ret = 0;
 	tools->len = 0;
+	tools->type = 0;
 }
 
-char	*ft_parse_format(char *format)
+int	ft_parse_format(char *format, t_flags *tools)
 {
-	t_flags tools;
-	// t_flags *tools;
 	int i;
 	int start;
 
 	i = 0;
 	start = 0;
-	// tools = (t_flags *)malloc(t_flags);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			ft_build_tools(&tools);
+			ft_build_tools(tools);
 			write (1, format, i - start);
-			// while (format[start++] < format[i])
-			// 	ft_putchar(format[start]);
-			i += 1;
-			ft_parse_flags(format, &i, &tools);
-			//ft_parse_conv(format, ap);
+			ft_parse_flags(format, &i, tools);
+			if (tools->type != -1)
+				i++;
 			start = i;
 		}
 		if (format[i] != '\0')
 			i++;
 	}
-	return (0);
+	return (i - start);
+}
+void	ft_parse_convert(t_flags *tools, va_list ap)
+{
+
+
+
 }
 
 char *ft_printf(const char *format, ...)
 {
-	//va_list		ap;
+	int ret;
+	t_flags tools;
+	va_list		ap;
 
-	//va_start(ap, str);
-	if (!ft_parse_format((char *)format))
+	va_start(ap, str);
+	if (!ret = (ft_parse_format(((char *)format), &tools)))
 		return (0);
+	ft_parse_convert(&tools, ap);
+	
 	return ("swags");
 }
 
