@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/26 18:00:05 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/29 17:46:18 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_build_tools(t_flags *tools)
 	tools->type = 0;
 }
 
-int	ft_parse_format(char *format, t_flags *tools)
+int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
 {
 	int i;
 	int start;
@@ -41,7 +41,7 @@ int	ft_parse_format(char *format, t_flags *tools)
 		{
 			ft_build_tools(tools);
 			write (1, format, i - start);
-			ft_parse_flags(format, &i, tools);
+			ft_parse_flags(format, &i, tools, ap);
 			if (tools->type != -1)
 				i++;
 			start = i;
@@ -51,25 +51,17 @@ int	ft_parse_format(char *format, t_flags *tools)
 	}
 	return (i - start);
 }
-void	ft_parse_convert(t_flags *tools, va_list ap)
+
+int	ft_printf(const char *format, ...)
 {
-
-
-
-}
-
-char *ft_printf(const char *format, ...)
-{
-	int ret;
-	t_flags tools;
+	int			ret;
+	t_flags		tools;
 	va_list		ap;
 
-	va_start(ap, str);
-	if (!ret = (ft_parse_format(((char *)format), &tools)))
+	va_start(ap, format);
+	if (!(ret = (ft_parse_format_print(((char *)format), ap, &tools))))
 		return (0);
-	ft_parse_convert(&tools, ap);
-	
-	return ("swags");
+	return (0);
 }
 
 int main(void)

@@ -6,13 +6,13 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/22 13:56:37 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/29 18:04:20 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    ft_width(char *format, int *i, t_flags *tools)
+void    ft_check_width(char *format, int *i, t_flags *tools)
 {
     char *ptr;
 
@@ -26,7 +26,7 @@ void    ft_width(char *format, int *i, t_flags *tools)
     }
 }
 
-void    ft_flags(char *format, int *i, t_flags *tools)
+void    ft_check_flags(char *format, int *i, t_flags *tools)
 {
     while (format[*i] != '\0' && (format[*i] == '-' || format[*i] == '+' || 
             format[*i] == '0' ||  format[*i] == '#' ||  format[*i] == ' '))
@@ -51,7 +51,7 @@ void    ft_flags(char *format, int *i, t_flags *tools)
     }
 }
 
-void ft_args(char *format, int *i, t_flags *tools)
+void ft_check_args(char *format, int *i, t_flags *tools)
 {
     while (format[*i] != '\0' && (format[*i] == 'h' || format[*i] == 'l' ||
             format[*i] == 'z' || format[*i] == 'j'))
@@ -78,7 +78,7 @@ void ft_args(char *format, int *i, t_flags *tools)
             }
 }
 
-void    ft_prec(char *format, int *i, t_flags *tools)
+void    ft_check_prec(char *format, int *i, t_flags *tools)
 {
     char *tmp;
 
