@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_basic_conv.c                                    :+:      :+:    :+:   */
+/*   ft_basic_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/29 18:07:27 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/29 19:38:36 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 // }
 // void	parse(t_flags *bag)
 // {
-// 	ZERO = PRECISION < 0 ? false : ZERO;
+// 	if (PRECISION < 0)
+//      zero = false;
 // 	LEN = (PRECISION < LEN && IF_PREC == true) ? PRECISION : LEN;
 // 	WIDTH = WIDTH < 0 && TYPE == 'c' ? WIDTH * -1 : WIDTH;
 // 	WIDTH = (PRECISION < 0) ? PRECISION * -1 : WIDTH - LEN;
@@ -39,6 +40,10 @@
 
 void ft_print_string(t_flags *tools, va_list ap)
 {
+
+
+
+
 
 }
 

@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by lprior	           #+#    #+#             */
-/*   Updated: 2018/01/29 17:42:45 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/29 18:23:40 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void    ft_check_width(char *format, int *i, t_flags *tools);
 void    ft_check_prec(char *format, int *i, t_flags *tools);
 void    ft_check_flags(char *format, int *i, t_flags *tools);
 void 	ft_parse_flags2(char *format, int *i, t_flags *tools);
-void 	ft_type(char format, t_flags *tools, va_list ap);
+void 	ft_check_type(char format, t_flags *tools, va_list ap);
 void	ft_print_string(t_flags *tools, va_list ap);
 void	ft_print_wchar(t_flags *tools, va_list ap);
 void	ft_print_wchar_str(t_flags *tools, va_list ap);
