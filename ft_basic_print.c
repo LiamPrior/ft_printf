@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/29 19:38:36 by lprior           ###   ########.fr       */
+/*   Updated: 2018/01/31 10:59:47 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,7 @@
 // 	while (WIDTH-- > 0)
 // 		ft_putchar(' ', bag);
 // }
-// void	parse(t_flags *bag)
-// {
-// 	if (PRECISION < 0)
-//      zero = false;
-// 	LEN = (PRECISION < LEN && IF_PREC == true) ? PRECISION : LEN;
-// 	WIDTH = WIDTH < 0 && TYPE == 'c' ? WIDTH * -1 : WIDTH;
-// 	WIDTH = (PRECISION < 0) ? PRECISION * -1 : WIDTH - LEN;
-// 	WIDTH = (TYPE == 'c' && PRECISION < 0) ? (PRECISION * -1) - 1 : WIDTH;
-// 	MINUS = (TYPE == 'c' && PRECISION < 0) ? true : MINUS;
-// 	if (IF_PREC == true && PRECISION == 0 && TYPE == 'c')
-// 		WIDTH--;
-// }
+
 
 void ft_print_string(t_flags *tools, va_list ap)
 {

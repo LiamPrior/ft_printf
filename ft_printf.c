@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/29 17:46:18 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/02 14:29:51 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	ft_build_tools(t_flags *tools)
 	tools->positive = 0;
 	tools->space = 0;
 	tools->hash = 0;
-	tools->zero = 0;
+	tools->zeros = 0;
 	tools->negative = 0;
 	tools->brand = 0;
 	tools->width = 0;
+	tools->ifprec = 0;
 	tools->prec = 0;
 	tools->arg = 0;
 	tools->ret = 0;

@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/29 19:48:50 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/02 14:48:33 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,15 @@ void    parse_bag(t_flags *tools)
         tools->len = tools->prec;
     if (tools->width < 0 && tools->type == 'c')
         tools->width *= -1;
-    if (tools->width)
-
-
+    if (tools->prec < 0)
+        tools->width = tools->prec * -1;
+    else
+        tools->width -= tools->len;
+    if (tools->brand == 'c' && tools->prec < 0)
+    {
+        tools->width = ((tools->prec * -1) - 1);
+        tools->negative = 1;
+    }
+    if (tools->ifprec == 1 && tools->prec == 0 && tools->brand == 'c')
+        tools->width -= 1;
 }
