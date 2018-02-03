@@ -6,13 +6,13 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/02 14:48:33 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/02 17:26:26 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    parse_bag(t_flags *tools)
+void    parse_tools(t_flags *tools)
 {
     if (tools->prec < 0)
         tools->zeros = 0;

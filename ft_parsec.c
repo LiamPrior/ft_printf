@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 15:36:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/29 18:04:54 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/02 18:14:56 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void ft_check_type2(char format, t_flags *tools, va_list ap)
 	else if (format == 'c')
 	{
 		tools->brand = format;
+		tools->len = 1;
 		ft_print_char(tools, ap);
 	}
 	else if (format == '%')

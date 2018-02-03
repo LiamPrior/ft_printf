@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/31 10:59:47 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/02 18:14:57 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void ft_print_char(t_flags *tools, va_list ap)
 {
     unsigned char x;
 
-
-
+    x = va_arg(ap, unsigned char);
+    parse_tools(tools);
 
 }
