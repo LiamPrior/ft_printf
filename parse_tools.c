@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/03 17:32:08 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/04 12:43:14 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,23 @@ void    ft_parse_char(t_flags *tools)
 // 	SPACE = nb < 0 ? false : SPACE;
 // }
 
+void			ft_parse_int2(t_flags *tools, long int number)
+{
+    if (tools->prec < 0)
+        tools->prec *= -1;
+    tools->prec -= tools->len;
+    if (tools->space == 1 && tools->width < 1 && number > 0)
+        tools->width = 1;
+    if (tools->prec > 0)
+        tools->width -= (tools->prec += tools->len);
+    else
+        tools->width -= tools->len;
+    if (tools->positive == 1 || number < 0)
+        tools->width--;
+    if (tools->ifprec == 1)
+        tools->zeros = 0;
+}
+
 void			ft_parse_int(t_flags *tools, long int number)
 {
     char *length;
@@ -64,6 +81,8 @@ void			ft_parse_int(t_flags *tools, long int number)
         tools->len = 0;
     else
         tools->len = ft_strlen(length);
+    if (number < 0)
+        tools->space = 0;
     free(length);
     if (number < 0)
         tools->len--;
@@ -71,19 +90,5 @@ void			ft_parse_int(t_flags *tools, long int number)
         tools->negative = 1;
     if (tools->width < 0)
         tools->width *= -1;
-    if (tools->prec < 0)
-        tools->prec *= -1;
-    tools->prec -= tools->len;
-    if (tools->prec > 0)
-        tools->width -= (tools->prec += tools->len);
-    else
-        tools->width -= tools->len;
-    if (tools->positive == 1 || number < 0)
-        tools->width--;
-    if (tools->ifprec == 1)
-        tools->zeros = 0;
-    if (tools->space == 1 && tools->width < 1 && number > 0)
-        tools->width = 1;
-    if (number < 0)
-        tools->space = 0;
+    ft_parse_int2(tools, number);
 }
