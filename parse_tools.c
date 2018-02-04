@@ -6,17 +6,20 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/03 13:58:48 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/03 17:32:08 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+//Remeber liam that you may be able to remvoe the ifprec from ur struct because precision 0 doesnt do much.
+
+
 void    ft_parse_char(t_flags *tools)
 {
     if (tools->prec < 0)
         tools->zeros = 0;
-    if (tools->prec < tools->len && tools->prec == 1)
+    if (tools->prec < tools->len && tools->ifprec == 1)
         tools->len = tools->prec;
     if (tools->width < 0 && tools->type == 'c')
         tools->width *= -1;
@@ -56,13 +59,31 @@ void			ft_parse_int(t_flags *tools, long int number)
 {
     char *length;
 
-    length = ft_itoa(nb);
+    length = ft_itoa(number);
     if (number == 0 && tools->ifprec == 1)
         tools->len = 0;
     else
-        tools->len = ft_strlen()
-
-
-
-
+        tools->len = ft_strlen(length);
+    free(length);
+    if (number < 0)
+        tools->len--;
+    if (tools->width < 0 || tools->prec < 0)
+        tools->negative = 1;
+    if (tools->width < 0)
+        tools->width *= -1;
+    if (tools->prec < 0)
+        tools->prec *= -1;
+    tools->prec -= tools->len;
+    if (tools->prec > 0)
+        tools->width -= (tools->prec += tools->len);
+    else
+        tools->width -= tools->len;
+    if (tools->positive == 1 || number < 0)
+        tools->width--;
+    if (tools->ifprec == 1)
+        tools->zeros = 0;
+    if (tools->space == 1 && tools->width < 1 && number > 0)
+        tools->width = 1;
+    if (number < 0)
+        tools->space = 0;
 }
