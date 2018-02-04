@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/02 14:29:51 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/04 15:21:16 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ft_build_tools(t_flags *tools)
 	tools->arg = 0;
 	tools->ret = 0;
 	tools->len = 0;
-	tools->type = 0;
 }
 
 int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
@@ -36,20 +35,22 @@ int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
 
 	i = 0;
 	start = 0;
+	// printf("IM HERE3\n");
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			ft_build_tools(tools);
-			write (1, format, i - start);
+			print(start, i, format);
 			ft_parse_flags(format, &i, tools, ap);
-			if (tools->type != -1)
+			if (tools->brand != -1)
 				i++;
 			start = i;
 		}
 		if (format[i] != '\0')
 			i++;
 	}
+	print(start, i, format);
 	return (i - start);
 }
 
@@ -59,22 +60,14 @@ int	ft_printf(const char *format, ...)
 	t_flags		tools;
 	va_list		ap;
 
+	// printf("IM HERE1\n");
 	va_start(ap, format);
+	// printf("IM HERE2\n");
 	if (!(ret = (ft_parse_format_print(((char *)format), ap, &tools))))
 		return (0);
+	// printf("IM HEREFINISH\n");
 	return (0);
 }
-
-int main(void)
-{
-	char *str;
-	
-	str = ft_strnew(7);
-	str = "string\0";
-	ft_printf("hello %d\n", 12345667890);
-	return 0;
-}
-
 
 /*
 **char	1 byte	-128 to 127 or 0 to 255

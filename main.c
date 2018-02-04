@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_pup.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/29 13:23:22 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/04 14:02:11 by lprior           ###   ########.fr       */
+/*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
+/*   Updated: 2018/02/04 15:26:51 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_print_pointer(t_flags *tools, va_list ap)
+int main()
 {
-   int i;
 
-    i = va_arg(ap, int);
-    tools->ifprec = 0;
-}
-
-void ft_print_unsigned_int(t_flags *tools, va_list ap)
-{
-   int i;
-
-    i = va_arg(ap, int);
-    tools->ifprec = 0;
-}
-
-void ft_print_precision(t_flags *tools, va_list ap)
-{
-   int i;
-
-    i = va_arg(ap, int);
-    tools->ifprec = 0;
+    // printf("%c\n", 'c');
+    ft_printf("[%s]\n", "hi");
+    // printf("[%5c]", 'c');
+    // ft_printf("[%5c]", 'c');
+    return (0);
 }

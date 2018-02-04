@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/01/29 19:39:24 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/04 15:15:23 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void    ft_check_width(char *format, int *i, t_flags *tools)
 {
     char *ptr;
-
+    
     ptr = format;
     while (ft_isdigit(format[*i]) && format[*i] != '\0')
     {
-        format += *i;
+        ptr += *i;
         tools->width = ft_atoi(ptr);
         while (ft_isdigit(format[*i]))
             (*i)++;

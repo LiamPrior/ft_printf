@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 15:43:30 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/02 17:24:38 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/04 13:03:57 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int main()
 {
     void   *x = "stringly";
     wchar_t xx = L'h';
-	int i = 'c';
-
-	printf("%c\n", i);
+    int i = 'c';
+// printf("[%.4c]\n", 'c');
+printf("[%.-4d]\n", -119);
+printf("[%.c]\n", i);
 printf("[%s]\n", "swag");
 printf("[%d]\n", xx);
 printf("[%p]\n", x);

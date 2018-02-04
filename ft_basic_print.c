@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/03 13:58:49 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/04 15:21:03 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void ft_print_string(t_flags *tools, va_list ap)
     string = va_arg(ap, char *);
     // str = (str == NULL ? "(null)" : str);
     tools->len = ft_strlen(string);
-    ft_parse_tools(tools);
+    ft_parse_char_tool(tools);
     while (tools->negative == 0 && tools->width-- > 0)
     {
         if (tools->zeros == 1)
@@ -63,14 +63,17 @@ void ft_print_int(t_flags *tools, va_list ap)
 {
     int i;
 
+    i = va_arg(ap, int);
+    tools->ifprec = 0;
 }
+
 
 void ft_print_char(t_flags *tools, va_list ap)
 {
     unsigned char leter;
 
-    leter = va_arg(ap, unsigned char);
-    parse_tools(tools);
+    leter = va_arg(ap, int);
+    ft_parse_char_tool(tools);
     while (tools->negative == 0 && tools->width-- > 0)
     {  
         if (tools->zeros == 1)
@@ -82,3 +85,29 @@ void ft_print_char(t_flags *tools, va_list ap)
     while (tools->width-- > 0)
         ft_putchar(' ');
 }
+
+void print(int start, int end, char *format)
+{
+    int i;
+
+    i = 0;
+    while (i < start && format[i])
+        i++;
+    while(i < end)
+    {    
+        write(1, &(format[i]), 1);
+        i++;
+    }
+}
+
+
+// void	print_format(char x)
+// {
+// 	write(1, &x, 1);
+// }
+
+// void	print(int start, int end, char *format)
+// {
+// 	while (start < end && format[start] != '\0')
+// 		print_format(format[start++]);
+// }
