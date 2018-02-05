@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/04 14:42:03 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/05 15:05:09 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,16 @@
 // }
 void    ft_parse_char_tool(t_flags *tools)
 {
-    if (tools->prec < tools->len && tools->prec >= 1)
+    if (tools->prec < tools->len && tools->prec >= 0)
         tools->len = tools->prec;
+    // printf("width = [%d]\n", tools->width);
     if (tools->width < 0 && tools->brand == 'c')
         tools->width *= -1;
-    if (tools->prec > 0)
+    if (tools->prec >= 0)
         tools->width -= tools->len;
-    if (tools->brand == 'c' && tools->prec < 0)
-    {
-        tools->width = ((tools->prec * -1) - 1);
-        tools->negative = 1;
-    }
-    if (tools->ifprec == 1 && tools->prec == 0 && tools->brand == 'c')
+    if (tools->width >= 0)
+        tools->width -= tools->len;
+    if (tools->prec >= 0 && tools->prec == 0 && tools->brand == 'c')
         tools->width -= 1;
 }
 // void			parse_int(t_flags *bag, long int nb)
@@ -62,7 +60,7 @@ void    ft_parse_char_tool(t_flags *tools)
 // }
 void    ft_parse_int2_tools(t_flags *tools, long int number)
 {
-    if (tools->prec > 0)
+    if (tools->prec >= 0)
         tools->width -= (tools->prec += tools->len);
     else
         tools->width -= tools->len;

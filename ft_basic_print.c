@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/04 15:21:03 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/05 14:25:01 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void ft_print_int(t_flags *tools, va_list ap)
     int i;
 
     i = va_arg(ap, int);
-    tools->ifprec = 0;
+    tools->prec = 0;
 }
 
 
@@ -86,7 +86,7 @@ void ft_print_char(t_flags *tools, va_list ap)
         ft_putchar(' ');
 }
 
-void print(int start, int end, char *format)
+void ft_print(int start, int end, char *format)
 {
     int i;
 

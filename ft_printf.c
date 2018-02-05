@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/04 15:21:16 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/05 14:23:46 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	ft_build_tools(t_flags *tools)
 	tools->negative = 0;
 	tools->brand = 0;
 	tools->width = 0;
-	tools->ifprec = 0;
-	tools->prec = 0;
+	tools->prec = -1;
 	tools->arg = 0;
 	tools->ret = 0;
 	tools->len = 0;
@@ -41,7 +40,7 @@ int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
 		if (format[i] == '%')
 		{
 			ft_build_tools(tools);
-			print(start, i, format);
+			ft_print(start, i, format);
 			ft_parse_flags(format, &i, tools, ap);
 			if (tools->brand != -1)
 				i++;
@@ -50,7 +49,7 @@ int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
 		if (format[i] != '\0')
 			i++;
 	}
-	print(start, i, format);
+	ft_print(start, i, format);
 	return (i - start);
 }
 

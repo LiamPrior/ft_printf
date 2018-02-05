@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 14:21:44 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/04 15:14:49 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/05 15:04:03 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 void ft_check_fwap(char *format, int *i, t_flags *tools)
 {
-    ft_check_args(format, i, tools);
+	while (format[*i] == '-' || format[*i] == '+' || format[*i] == ' ' ||
+			format[*i] == '#')
+	{
+		ft_check_flags(format, i, tools);
+	}	
+	ft_check_args(format, i, tools);
 	ft_check_width(format, i, tools);
 	ft_check_prec(format, i, tools);
-    ft_check_flags(format, i, tools);
+
 }
 
 void ft_parse_flags2(char *format, int *i, t_flags *tools)
