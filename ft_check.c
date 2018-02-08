@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 18:26:23 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/07 19:49:19 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/07 20:05:34 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ long long int ft_sort_signed_args(t_flags *tools, va_list ap)
         return ((long long int)va_arg(ap, void*))
     else if (tools->arg == 6)
         return ((long long int)va_arg(ap, void*));
-    
 }
 
 

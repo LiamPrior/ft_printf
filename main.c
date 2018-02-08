@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/07 16:36:40 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/07 17:59:15 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int main()
 {
 
     // printf("%c\n", 'c');
-    ft_printf("[%10.3s]\n", "paulina");
-    printf("[%10.3s]\n", "paulina");
+    ft_printf("[%d]\n", 'a');
+    printf("[%d]\n", 'a');
     // printf("[%5c]", 'c');
     // ft_printf("[%5c]", 'c');
     return (0);
