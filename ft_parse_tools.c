@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/05 15:05:09 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/07 16:41:59 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@
 // }
 void    ft_parse_char_tool(t_flags *tools)
 {
+    // printf("len = [%d]\n", tools->len);
     if (tools->prec < tools->len && tools->prec >= 0)
         tools->len = tools->prec;
-    // printf("width = [%d]\n", tools->width);
     if (tools->width < 0 && tools->brand == 'c')
         tools->width *= -1;
     if (tools->prec >= 0)
         tools->width -= tools->len;
-    if (tools->width >= 0)
-        tools->width -= tools->len;
+    // if (tools->width >= 0)
+    //     tools->width -= tools->len;
     if (tools->prec >= 0 && tools->prec == 0 && tools->brand == 'c')
         tools->width -= 1;
 }

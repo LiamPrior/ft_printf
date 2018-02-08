@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/05 14:43:25 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/07 16:35:37 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,11 @@ void    ft_check_prec(char *format, int *i, t_flags *tools)
         (*i)++;
     else
         return ;
-	while (format[*i] != '\0' && (format[*i] == '-' || 
+	if (format[*i] != '\0' && (format[*i] == '-' || 
             ft_isdigit(format[*i])))
     {
-        tmp += *i;
+        tools->prec = ft_atoi(&(tmp[*i]));
         while (ft_isdigit(tmp[*i]))
             (*i)++;
-        tools->prec = ft_atoi(tmp);
     }
 }
