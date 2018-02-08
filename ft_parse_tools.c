@@ -6,26 +6,76 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/07 17:37:30 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/07 19:26:01 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-//Remeber liam that you may be able to remvoe the ifprec from ur struct because precision 0 doesnt do much.
-
-
-// void	parse(t_flags *bag)
+// long long int	assign_value(t_flags *bag, va_list ap)
 // {
-// 	ZERO = PRECISION < 0 ? false : ZERO;
-// 	LEN = (PRECISION < LEN && IF_PREC == true) ? PRECISION : LEN;
-// 	WIDTH = WIDTH < 0 && TYPE == 'c' ? WIDTH * -1 : WIDTH;
-// 	WIDTH = (PRECISION < 0) ? PRECISION * -1 : WIDTH - LEN;
-// 	WIDTH = (TYPE == 'c' && PRECISION < 0) ? (PRECISION * -1) - 1 : WIDTH;
-// 	MINUS = (TYPE == 'c' && PRECISION < 0) ? true : MINUS;
-// 	if (IF_PREC == true && PRECISION == 0 && TYPE == 'c')
-// 		WIDTH--;
+// 	if (TYPE != 'i' && TYPE != 'd' && TYPE != 'o' && TYPE != 'u' && TYPE != 'x'
+// 		&& TYPE != 'X')
+// 		ARGUMENT = 0;
+// 	if (ARGUMENT == 1)
+// 		return (RETURN_H);
+// 	if (ARGUMENT == 2)
+// 		return (RETURN_HH);
+// 	if (ARGUMENT == 3 || TYPE == 'D')
+// 		return (RETURN_L);
+// 	if (ARGUMENT == 4)
+// 		return (RETURN_LL);
+// 	if (ARGUMENT == 5)
+// 		return (RETURN_J);
+// 	if (ARGUMENT == 6)
+// 		return (RETURN_Z);
+// 	if (TYPE == 'd' || TYPE == 'i')
+// 		return ((int)va_arg(ap, void*));
+// 	if (TYPE == 'U' || TYPE == 'O')
+// 		return ((unsigned long long int)va_arg(ap, void*));
+// 	if (TYPE == 'u' || TYPE == 'o' || TYPE == 'X' || TYPE == 'x')
+// 		return ((unsigned int)va_arg(ap, void*));
+// 	return ((long long int)NULL);
 // }
+// #define T			(TYPE == 'i' || TYPE == 'd')
+// #define ARG			(va_arg(ap, void*))
+// #define RETURN_H 	T ? (short int)ARG : (unsigned short int)ARG
+// #define RETURN_HH	T ? (char)ARG : (unsigned char)ARG
+// #define RETURN_L	(T || TYPE == 'D') ? (long int)ARG : (unsigned long int)ARG
+// #define RETURN_LL	T ? (long long int)ARG : (unsigned long long int)ARG
+// #define RETURN_J	T ? (intmax_t)ARG : (uintmax_t)ARG
+// #define RETURN_Z	(size_t)va_arg(ap, size_t)
+
+long long int ft_sort_unsigned_args(t_flags *tools, va_list ap)
+{
+    if (tools->arg == 1)
+        return ((size_t)va_arg(ap, size_t));
+    else if (tools->arg == 2)
+        return ((uintmax_t)va_arg(ap, void*));
+    else if (tools->arg == 3)
+        return ((unsigned short int)va_arg(ap, void*));
+    else if (tools->arg == 4)
+       return ((unsigned long int)va_arg(ap, void*));
+    else if (tools->arg == 5)
+        return ((unsigned long long int)va_arg(ap, void*))
+    else if (tools->arg == 6)
+        return ((unsigned long long int)va_arg(ap, void*));
+}
+long long int ft_sort_signed_args(t_flags *tools, va_list ap)
+{
+    if (tools->arg == 1)
+        return ((size_t)va_arg(ap, size_t));
+    else if (tools->arg == 2)
+        return ((intmax_t)va_arg(ap, void*));
+    else if (tools->arg == 3)
+        return ((short int)va_arg(ap, void*));
+    else if (tools->arg == 4)
+       return ((long int)va_arg(ap, void*));
+    else if (tools->arg == 5)
+        return ((long long int)va_arg(ap, void*))
+    else if (tools->arg == 6)
+        return ((long long int)va_arg(ap, void*));
+}
+
 void    ft_parse_char_tool(t_flags *tools)
 {
     if (tools->prec < tools->len && tools->prec >= 0)
@@ -33,6 +83,7 @@ void    ft_parse_char_tool(t_flags *tools)
     if (tools->prec >= 0 || tools->width >= 0)
         tools->width -= tools->len;
 }
+    
 // void			parse_int(t_flags *bag, long int nb)
 // {
 // 	char	*len;
