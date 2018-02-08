@@ -6,32 +6,11 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/07 16:24:23 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/07 19:49:58 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// void			print_int(t_flags *bag, va_list ap)
-// {
-// 	long int nb;
-
-// 	nb = assign_value(bag, ap);
-// 	parse_int(bag, nb);
-// 	if (ZERO == true)
-// 		print_plus(bag, &nb);
-// 	if (SPACE == true && WIDTH--)
-// 		ft_putchar(' ', bag);
-// 	while (MINUS == false && WIDTH-- > 0)
-// 		ZERO == true ? ft_putchar('0', bag) : ft_putchar(' ', bag);
-// 	print_plus(bag, &nb);
-// 	while (PRECISION-- > 0)
-// 		ft_putchar('0', bag);
-// 	if ((LEN > 0) || (nb == 0 && IF_PREC == false))
-// 		ft_putnbr(nb, bag);
-// 	while (WIDTH-- > 0)
-// 		ft_putchar(' ', bag);
-// }
 
 void ft_print_string(t_flags *tools, va_list ap)
 {
@@ -59,12 +38,40 @@ void ft_print_string(t_flags *tools, va_list ap)
     }
 }
 
+// void			print_int(t_flags *bag, va_list ap)
+// {
+// 	long int nb;
+
+// 	nb = assign_value(bag, ap);
+// 	parse_int(bag, nb);
+// 	if (ZERO == true)
+// 		print_plus(bag, &nb);
+// 	if (SPACE == true && WIDTH--)
+// 		ft_putchar(' ', bag);
+// 	while (MINUS == false && WIDTH-- > 0)
+// 		ZERO == true ? ft_putchar('0', bag) : ft_putchar(' ', bag);
+// 	print_plus(bag, &nb);
+// 	while (PRECISION-- > 0)
+// 		ft_putchar('0', bag);
+// 	if ((LEN > 0) || (nb == 0 && IF_PREC == false))
+// 		ft_putnbr(nb, bag);
+// 	while (WIDTH-- > 0)
+// 		ft_putchar(' ', bag);
+// }
+
 void ft_print_int(t_flags *tools, va_list ap)
 {
-    int i;
+    long int nb;
 
-    i = va_arg(ap, int);
-    tools->prec = 0;
+    nb = ft_check_int(tools); 
+    if (tools->arg > 0 && (tools->brand == 'i' || tools->brand == 'd' 
+        || tools->brand == 'D'))
+        nb = ft_sort_signed_args(tools, ap);
+    else if (tools->arg > 0)
+        nb = ft_sort_unsigned_args(tools, ap);
+    
+    
+
 }
 
 
@@ -99,15 +106,3 @@ void ft_print(int start, int end, char *format)
         i++;
     }
 }
-
-
-// void	print_format(char x)
-// {
-// 	write(1, &x, 1);
-// }
-
-// void	print(int start, int end, char *format)
-// {
-// 	while (start < end && format[start] != '\0')
-// 		print_format(format[start++]);
-// }
