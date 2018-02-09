@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/07 20:05:40 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/08 16:21:36 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void    ft_parse_char_tool(t_flags *tools)
 void    ft_parse_int2_tools(t_flags *tools, long int number)
 {
     if (tools->prec >= 0)
-        tools->width -= (tools->prec += tools->len);
+        tools->width -= (tools->prec + tools->len);
     else
         tools->width -= tools->len;
     if (tools->positive == 1 || number < 0)
         tools->width--;
-    if (tools->prec >= 1)
+    if (tools->prec >= 0)
         tools->zeros = 0;
     if (tools->space == 1 && tools->width < 1 && number > 0)
         tools->width = 1;
@@ -57,7 +57,7 @@ void    ft_parse_int2_tools(t_flags *tools, long int number)
 void    ft_parse_int_tools(t_flags *tools, long int number)
 {
     char *length;
-
+    
     length = ft_itoa(number);
     if (number == 0 && tools->prec >= 1)
         tools->len = 0;
@@ -66,11 +66,12 @@ void    ft_parse_int_tools(t_flags *tools, long int number)
     free(length);
     if (number < 0)
         tools->len--;
-    if (tools->width < 0)
-    {
-        tools->negative = 1;
-        tools->width *= -1;
-    }   
+    // if (tools->width < 0)
+    // {
+    //     tools->negative = 1;
+    //     tools->width *= -1;
+    // }
+    // printf("tools prec2 [%d\n]", tools->prec);
     tools->prec -= tools->len;
     ft_parse_int2_tools(tools, number);
 }
