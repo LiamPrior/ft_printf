@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/07 19:49:58 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/08 18:29:21 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,70 @@ void ft_print_string(t_flags *tools, va_list ap)
 // 		ft_putchar(' ', bag);
 // }
 
-void ft_print_int(t_flags *tools, va_list ap)
+void ft_print_int2(t_flags *tools, long int number, int dis)//if i pass number to this will re cast it incorrectly?
 {
-    long int nb;
-
-    nb = ft_check_int(tools); 
-    if (tools->arg > 0 && (tools->brand == 'i' || tools->brand == 'd' 
-        || tools->brand == 'D'))
-        nb = ft_sort_signed_args(tools, ap);
-    else if (tools->arg > 0)
-        nb = ft_sort_unsigned_args(tools, ap);
-    
-    
-
+    if (tools->positive == 1 && number >= 0)
+    {
+        ft_putchar('+');
+        tools->positive = 0;
+    }
+    if (number <= -1)// != LL_min
+    {
+        ft_putchar('-');
+        number *= -1;
+        tools->positive = 0;
+    }
+    // if (tools->prec == 0 && dis == 0)
+    //     ft_putchar(' ');
+    ft_print_prec(tools);
+    // dis = 0;
+    // if (dis == 1 && number == 0)//if i do this then the top half works.
+    // {
+    //     if (tools->zeros == 1)
+    //         ft_putchar('0');
+    //     else if (tools->zeros == 0)
+    //         ft_putchar(' ');
+    // }
+    // else
+    if (number == 0 && dis == 0)//so if i do this then the bottum half works.
+        ft_putnbr(number);
+    while (tools->width-- >= 1)
+        ft_putchar(' ');
 }
 
+void ft_print_int(t_flags *tools, va_list ap)
+{
+    long int number;
+    int     dis;
+    
+    if ((number = ft_sort_signed_args(tools, ap)) == 0)
+        number = ft_check_signed_int(tools, ap);
+    dis = tools->prec > -1 ? 1 : 0;
+    ft_parse_int_tools(tools, number);
+    if (tools->zeros == 1 && tools->positive == 1 && number > -1)
+    {
+        ft_putchar('+');
+        tools->positive = 0;
+    }
+    if (tools->zeros == 1 && number <= -1)// != LL_min
+    {
+        ft_putchar('-');
+        number *= -1;
+        tools->positive = 0;
+    }
+    if (tools->space == 1)
+    {
+        tools->width--;
+        ft_putchar(' ');
+    }
+    if (tools->negative == 0)
+       ft_print_zeros(tools);
+    ft_print_int2(tools, number, dis);
+} 
 
 void ft_print_char(t_flags *tools, va_list ap)
 {
     unsigned char leter;
-
     leter = va_arg(ap, int);
     ft_parse_char_tool(tools);
     while (tools->negative == 0 && tools->width-- > 0)
@@ -91,18 +135,4 @@ void ft_print_char(t_flags *tools, va_list ap)
     ft_putchar(leter);
     while (tools->width-- > 0)
         ft_putchar(' ');
-}
-
-void ft_print(int start, int end, char *format)
-{
-    int i;
-
-    i = 0;
-    while (i < start && format[i])
-        i++;
-    while(i < end)
-    {    
-        write(1, &(format[i]), 1);
-        i++;
-    }
 }
