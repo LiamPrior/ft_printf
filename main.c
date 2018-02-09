@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/09 12:30:14 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/09 15:11:34 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,27 +131,27 @@ int main()
 	printf("+0 width 10:			[%+010d]\n", +42);
 	ft_printf("+0 width 4:			[%+04d]\n", 42);
     printf("+0 width 4:			[%+04d]\n", 42);
-    ft_printf("[%.3d]\n", 0);
-    printf("[%.3d]\n", 0);
+    ft_printf("[%ld]\n", 9223372036854775807);
+	printf("[%ld]\n",  9223372036854775807);
 
  //--------------------- s ----------------------------
 	
-	printf("width 10:			[%10s]\n", "Hello");
-	ft_printf("width 10:			[%10s]\n", "Hello");
-	printf("minus and width 10:		[%-10s]\n", "Hello");
-	ft_printf("minus and width 10:		[%-10s]\n", "Hello");
-	printf("precyzja 1:			[%.1s]\n", "Hello");
-	ft_printf("precyzja 1:			[%.1s]\n", "Hello");
-	printf("width 10 prec 1:		[%10.1s]\n", "Hello");
-	ft_printf("width 10 prec 1:		[%10.1s]\n", "Hello");
-	printf("width 10 prec 6:		[%10.6s]\n", "Hello");
-	ft_printf("width 10 prec 6:		[%10.6s]\n", "Hello");
-	printf("empty:				[%s]\n", "");
-	ft_printf("empty:				[%s]\n", "");
-	printf("null:				[%s]\n", NULL);
-	ft_printf("null:				[%s]\n", NULL);
-	printf("[%s]\n", "100% des gens qui parlent à Ly adorent Ly.");
-	ft_printf("[%s]\n", "100% des gens qui parlent à Ly adorent Ly.");
+	// printf("width 10:			[%10s]\n", "Hello");
+	// ft_printf("width 10:			[%10s]\n", "Hello");
+	// printf("minus and width 10:		[%-10s]\n", "Hello");
+	// ft_printf("minus and width 10:		[%-10s]\n", "Hello");
+	// printf("precyzja 1:			[%.1s]\n", "Hello");
+	// ft_printf("precyzja 1:			[%.1s]\n", "Hello");
+	// printf("width 10 prec 1:		[%10.1s]\n", "Hello");
+	// ft_printf("width 10 prec 1:		[%10.1s]\n", "Hello");
+	// printf("width 10 prec 6:		[%10.6s]\n", "Hello");
+	// ft_printf("width 10 prec 6:		[%10.6s]\n", "Hello");
+	// printf("empty:				[%s]\n", "");
+	// ft_printf("empty:				[%s]\n", "");
+	// printf("null:				[%s]\n", NULL);
+	// ft_printf("null:				[%s]\n", NULL);
+	// printf("[%s]\n", "100% des gens qui parlent à Ly adorent Ly.");
+	// ft_printf("[%s]\n", "100% des gens qui parlent à Ly adorent Ly.");
 
 
 

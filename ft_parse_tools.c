@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/09 12:50:30 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/09 14:54:25 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,25 @@ void    ft_parse_int_tools(t_flags *tools, long int number)
     if (number < 0)
         tools->space = 0;
 }
+
+// void			parse_unsigned_int(t_flags *bag)
+// {
+// 	DISPLAY = IF_PREC == true && PRECISION == 0 && ((HASH == false) ||
+// 			(HASH == true && (TYPE == 'x' || TYPE == 'X'))) ? false : true;
+// 	WIDTH -= (TYPE == 'x' || TYPE == 'X') && HASH == true ? 2 : 0;
+// 	WIDTH -= (TYPE == 'o' || TYPE == 'O') && HASH == true ? 1 : 0;
+// 	MINUS = PRECISION < 0 ? true : MINUS;
+// 	WIDTH = (PRECISION < 0) ? PRECISION * -1 : WIDTH;
+// 	PRECISION -= LEN;
+// 	WIDTH -= PRECISION > 0 ? PRECISION + LEN : LEN;
+// 	PLUS == true ? WIDTH-- : WIDTH;
+// 	ZERO = IF_PREC == true || SPACE == true ? false : ZERO;
+// }
+
+// void    ft_parse_unsigned_int_tools(t_flags *tools)
+// {
+//     if (tools->prec == -100 && tools->hash = 0)
+
+//     if (tools->brand = 'x' || tools-> = 'X' && tools->hash = 1)
+//         tools->width -= 2;
+// }

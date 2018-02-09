@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 18:26:23 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/08 16:07:31 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/09 15:04:44 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 int ft_check_signed_int(t_flags *tools, va_list ap)
 {
     if (tools->brand == 'd' || tools->brand == 'i')
-		return ((int)va_arg(ap, void*));
+		return ((long long int)va_arg(ap, void*));
     return (0);
 }   
 
