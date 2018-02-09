@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by lprior	           #+#    #+#             */
-/*   Updated: 2018/02/07 19:13:07 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/08 18:04:35 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,13 @@ void 	ft_check_type2(char format, t_flags *tools, va_list ap);
 void    ft_parse_char_tool(t_flags *tools);
 void	ft_parse_int_tools(t_flags *tools, long int number);
 void	ft_parse_int2_tools(t_flags *tools, long int number);
-int 	ft_check_int(t_list *tools)
+int 	ft_check_signed_int(t_flags *tools, va_list ap);
 long long int ft_sort_signed_args(t_flags *tools, va_list ap);
 long long int ft_sort_unsigned_args(t_flags *tools, va_list ap);
+unsigned long long int ft_check_unsigned_int(t_flags *tools, va_list ap);
+void 	ft_print_zeros(t_flags *tools);
+void 	ft_print_int2(t_flags *tools, long int number, int dis);
+void    ft_print_prec(t_flags *tools);
+
+
 #endif
