@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/08 16:21:36 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/09 12:06:10 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void    ft_parse_int_tools(t_flags *tools, long int number)
     //     tools->negative = 1;
     //     tools->width *= -1;
     // }
-    // printf("tools prec2 [%d\n]", tools->prec);
-    tools->prec -= tools->len;
+    if (tools->prec != -100)
+        tools->prec -= tools->len;
     ft_parse_int2_tools(tools, number);
 }
 
