@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 14:21:44 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/07 12:18:58 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/08 16:26:34 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void ft_check_fwap(char *format, int *i, t_flags *tools)
 {
+	// printf("swag = %c\n", format[*i]);
 	while (format[*i] == '-' || format[*i] == '+' || format[*i] == ' ' ||
-			format[*i] == '#')
+			format[*i] == '#' || format[*i] == '0')
 	{
 		ft_check_flags(format, i, tools);
 	}	
