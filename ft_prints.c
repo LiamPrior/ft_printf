@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:11:08 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/08 15:57:12 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/09 11:36:03 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ void ft_print_zeros(t_flags *tools)
 
 void    ft_print_prec(t_flags *tools)
 {
-    while (tools->prec-- >= 1)
-        ft_putchar('0');
+    if (tools->prec != -100)
+        while (tools->prec-- >= 1)
+            ft_putchar('0');
 }
 // void	print_plus(t_flags *bag, long int *nb)
 // {
