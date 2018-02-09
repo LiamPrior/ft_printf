@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 18:26:23 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/07 20:05:34 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/08 16:07:31 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,24 @@
 // #define RETURN_J	T ? (intmax_t)ARG : (uintmax_t)ARG
 // #define RETURN_Z	(size_t)va_arg(ap, size_t)
 
-int ft_check_int(t_list *tools)
+int ft_check_signed_int(t_flags *tools, va_list ap)
 {
-    if (TYPE != 'i' && TYPE != 'd' && TYPE != 'o' && TYPE != 'u' && TYPE != 'x'
-        && TYPE != 'X')
-        tools->arg = 0;
-    if (tools->arg == 0)
-    {
-        if (tools->brand == 'd' || tools->brand == 'i')
-		    return ((int)va_arg(ap, void*));
-	    else if (tools->brand == 'U' || tools->brand == 'O')
-		    return ((unsigned long long int)va_arg(ap, void*));
-        else if (tools->brand == 'u' || tools->brand == 'o' || tools->brand == 'X' 
-            || tools->brand == 'x')
-		    return ((unsigned int)va_arg(ap, void*)); 
-    }
-    return ((long long int)NULL);
-}    
+    if (tools->brand == 'd' || tools->brand == 'i')
+		return ((int)va_arg(ap, void*));
+    return (0);
+}   
+
+unsigned long long int ft_check_unsigned_int(t_flags *tools, va_list ap)
+{
+    if (tools->brand == 'U' || tools->brand == 'O')
+		return ((unsigned long long int)va_arg(ap, void*));
+    else if (tools->brand == 'u' || tools->brand == 'o' || tools->brand == 'X' 
+            || tools->brand == 'x' || tools->brand == 'D')
+		return ((unsigned int)va_arg(ap, void*)); 
+    return ((unsigned long long int)NULL);
+}
+
+
 long long int ft_sort_unsigned_args(t_flags *tools, va_list ap)
 {
     if (tools->arg == 1)
@@ -73,10 +74,13 @@ long long int ft_sort_unsigned_args(t_flags *tools, va_list ap)
     else if (tools->arg == 4)
        return ((unsigned long int)va_arg(ap, void*));
     else if (tools->arg == 5)
-        return ((unsigned long long int)va_arg(ap, void*))
+        return ((unsigned long long int)va_arg(ap, void*));
     else if (tools->arg == 6)
         return ((unsigned long long int)va_arg(ap, void*));  
+    else
+        return (0);
 }
+    
 long long int ft_sort_signed_args(t_flags *tools, va_list ap)
 {
     if (tools->arg == 1)
@@ -88,9 +92,11 @@ long long int ft_sort_signed_args(t_flags *tools, va_list ap)
     else if (tools->arg == 4)
        return ((long int)va_arg(ap, void*));
     else if (tools->arg == 5)
-        return ((long long int)va_arg(ap, void*))
+        return ((long long int)va_arg(ap, void*));
     else if (tools->arg == 6)
         return ((long long int)va_arg(ap, void*));
+    else
+        return (0);
 }
 
 
