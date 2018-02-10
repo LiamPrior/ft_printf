@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by lprior	           #+#    #+#             */
-/*   Updated: 2018/02/09 14:54:07 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/09 18:03:28 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 
 typedef struct	s_flags
 {
-	bool	positive;
-	bool	negative;
-	bool	zeros;
-	bool	space;
-	bool	hash;
+	int		positive;
+	int		negative;
+	int		zeros;
+	int		space;
+	int		hash;
 	char	brand;
 	int		width;
 	int		prec;
@@ -57,13 +57,13 @@ void	ft_print_binary(t_flags *tools, va_list ap);
 void 	ft_check_type2(char format, t_flags *tools, va_list ap);
 void    ft_parse_char_tool(t_flags *tools);
 void	ft_parse_int_tools(t_flags *tools, long int number);
-int 	ft_check_signed_int(t_flags *tools, va_list ap);
+long long int ft_check_signed_int(t_flags *tools, va_list ap);
 long long int ft_sort_signed_args(t_flags *tools, va_list ap);
-long long int ft_sort_unsigned_args(t_flags *tools, va_list ap);
+unsigned long long int ft_sort_unsigned_args(t_flags *tools, va_list ap);
 unsigned long long int ft_check_unsigned_int(t_flags *tools, va_list ap);
 void 	ft_print_zeros(t_flags *tools);
-void 	ft_print_int2(t_flags *tools, long int number, int dis);
+void 	ft_print_int2(t_flags *tools, long long int number, int dis);
 void    ft_print_prec(t_flags *tools);
-// void    ft_parse_unsigned_int_tools(t_flags *tools);
+void    ft_parse_unsigned_int_tools(t_flags *tools, unsigned long long int nb);
 
 #endif
