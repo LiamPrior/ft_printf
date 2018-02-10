@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/09 14:54:25 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/09 18:29:57 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,28 @@ void    ft_parse_int_tools(t_flags *tools, long int number)
 // 	ZERO = IF_PREC == true || SPACE == true ? false : ZERO;
 // }
 
-// void    ft_parse_unsigned_int_tools(t_flags *tools)
-// {
-//     if (tools->prec == -100 && tools->hash = 0)
-
-//     if (tools->brand = 'x' || tools-> = 'X' && tools->hash = 1)
-//         tools->width -= 2;
-// }
+void    ft_parse_unsigned_int_tools(t_flags *tools, unsigned long long int number)
+{
+    // if ((tools->prec == -100 && tools->hash == 0) || tools->hash == 1 && 
+    //     (tools->brand  == 'x' || tools->brand == 'X'))
+    
+    number = number * 1;
+    if ((tools->brand == 'x' || tools->brand == 'X') && (tools->hash == 1))
+        tools->width -= 2;
+    if ((tools->brand == 'o' || tools->brand == 'O') && tools->hash == 1)
+        tools->width -= 1;
+    // if (tools->prec < 0)
+    // if (tools->prec < 0)
+    if (tools->prec >= 0)// i may need to put this below!
+        tools->width -= tools->prec;
+    else
+        tools->width -= tools->len;
+    if (tools->prec != -100 && tools->prec >= 0)
+        tools->prec -= tools->len;
+    // if (tools->prec >= 0)
+        // tools->width -= tools->prec + tools->len;
+    if (tools->positive == 1)
+        tools->width -= 1;
+    if (tools->prec == -100 || tools->space == 1)
+        tools->zeros = 0;
+}

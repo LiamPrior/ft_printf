@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/09 15:16:19 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/09 17:51:14 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void ft_print_string(t_flags *tools, va_list ap)
     }
 }
 
-void ft_print_int2(t_flags *tools, long int number, int dis)//if i pass number to this will re cast it incorrectly?
+void ft_print_int2(t_flags *tools, long long int number, int dis)//if i pass number to this will re cast it incorrectly?
 {
     if (tools->negative == 0)
        ft_print_zeros(tools);
@@ -76,7 +76,6 @@ void ft_print_int(t_flags *tools, va_list ap)
     
     if ((number = ft_sort_signed_args(tools, ap)) == 0)
         number = ft_check_signed_int(tools, ap);
-   
     dis = (tools->prec > -1 || tools->prec == -100) ? 1 : 0;
     ft_parse_int_tools(tools, number);
     if (tools->zeros == 1 && tools->positive == 1 && number > -1)
