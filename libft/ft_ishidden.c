@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpush.c                                       :+:      :+:    :+:   */
+/*   ft_ishidden.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckrommen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/02 18:45:41 by ckrommen          #+#    #+#             */
-/*   Updated: 2017/10/02 19:18:17 by ckrommen         ###   ########.fr       */
+/*   Created: 2017/10/05 17:08:40 by lprior            #+#    #+#             */
+/*   Updated: 2017/10/05 17:09:10 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstpush(t_list *lst, void const *content, size_t content_size)
+int	ft_ishidden(char *str)
 {
-	t_list	*new;
-	t_list	*tmp;
+	int i;
 
-	if (!(new = ft_lstnew(content, content_size)))
-		return (NULL);
-	tmp = lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = new;
-	return (lst);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+		str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+			return (1);
+		i++;
+	}
+	return (0);
 }

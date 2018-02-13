@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckrommen <ckrommen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/20 22:28:44 by ckrommen          #+#    #+#             */
-/*   Updated: 2017/09/28 15:37:05 by ckrommen         ###   ########.fr       */
+/*   Created: 2017/09/21 17:07:31 by lprior            #+#    #+#             */
+/*   Updated: 2017/09/25 13:54:17 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t		i;
+	size_t	i;
 
 	if (dst == src)
 		return (dst);

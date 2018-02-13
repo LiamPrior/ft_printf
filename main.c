@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/09 18:53:37 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/12 14:57:34 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,9 @@ int main()
 	ft_printf("null:				[%s]\n", NULL);
 	printf("[%s]\n", "100% des gens qui parlent à Ly adorent Ly.");
 	ft_printf("[%s]\n", "100% des gens qui parlent à Ly adorent Ly.");
+	printf("width 5 prec . = [%5.s]\n", "supfag");
+	ft_printf("width 5 prec . = [%5.s]\n", "supfag");
+
 
 	printf("[%2x]\n", 9);
 	ft_printf("[%2x]\n", 9);

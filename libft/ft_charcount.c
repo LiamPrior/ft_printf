@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprime.c                                       :+:      :+:    :+:   */
+/*   ft_charcount.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckrommen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/03 13:33:07 by ckrommen          #+#    #+#             */
-/*   Updated: 2017/10/03 13:35:23 by ckrommen         ###   ########.fr       */
+/*   Created: 2017/10/05 17:05:37 by lprior            #+#    #+#             */
+/*   Updated: 2017/10/05 17:06:21 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprime(int n)
+int	ft_charcount(char *str, char c)
 {
 	int i;
+	int count;
 
-	i = n / 2;
-	while (i > 1)
+	count = 0;
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (n % i != 0)
-			return (0);
-		i--;
+		if (str[i] != c && str[i] != '\0')
+			count++;
+		i++;
 	}
-	return (1);
+	return (count);
 }

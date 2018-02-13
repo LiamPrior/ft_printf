@@ -6,26 +6,73 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:34:47 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/09 19:07:06 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/12 18:58:08 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// char	*convert(t_flags *bag, long long int nb)
+// char	*convert_hex(unsigned long int nb, char type)
 // {
-// 	if (TYPE == 'b')
-// 		return (convert_binary(nb));
-// 	if (TYPE == 'o' || TYPE == 'O')
-// 		return (convert_octal(nb));
-// 	if (TYPE == 'x' || TYPE == 'X' || TYPE == 'p')
-// 		return (convert_hex(nb, TYPE));
-// 	if (TYPE == 'u' || TYPE == 'U')
-// 		return (ft_itoa(nb));
-// 	return (NULL);
+// 	char		*print;
+// 	int			i;
+
+// 	i = 0;
+// 	print = ft_memalloc(21);
+// 	if (nb == 0)
+// 		print[i] = '0';
+// 	if (type == 'x' || type == 'p')
+// 		while (nb != 0)
+// 		{
+// 			print[i++] = "0123456789abcdef"[nb % 16];
+// 			nb /= 16;
+// 		}
+// 	else
+// 		while (nb != 0)
+// 		{
+// 			print[i++] = "0123456789ABCDEF"[nb % 16];
+// 			nb /= 16;
+// 		}
+// 	return (ft_strrev(print));
 // }
 
-//oaky liam so im tired but this is what im leaving you to do tommorrow. You need to 
-// printf pup and parse tools. in parse tools you need to search for what you need to 
-// convert ^^^^^. Then you need to make conversions and then finish printing unsigned 
-// ints. Theres quite a bit more than that but thats a good place to leave off.
+// char	*convert_octal(unsigned long int nb)
+// {
+// 	char	*print;
+// 	int		i;
+
+// 	i = 0;
+// 	print = ft_memalloc(22);
+// 	if (nb == 0)
+// 		print[i++] = '0';
+// 	while (nb != 0)
+// 	{
+// 		print[i++] = (nb % 8) + 48;
+// 		nb /= 8;
+// 	}
+// 	print[i] = '\0';
+// 	return (ft_strrev(print));
+// }
+
+char *ft_convert_oct(unsigned long int number)
+{
+    char *print;
+    int i;
+
+    print = ft_strnew(22);
+    if (number < 0)
+        return ("errno");
+    if (number == 0)
+    {
+        print[i] = '0';
+        i++;
+    }
+    while (number)
+    {
+        print[i] = (number % 8) + 48;
+        nb /= 8;
+    }
+    print[i] = '\0';
+    return (ft_strrev(print));
+
+}

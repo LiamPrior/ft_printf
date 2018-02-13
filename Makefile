@@ -6,7 +6,7 @@
 #    By: lprior <lprior@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/22 10:44:33 by lprior            #+#    #+#              #
-#    Updated: 2018/02/09 18:57:47 by lprior           ###   ########.fr        #
+#    Updated: 2018/02/12 11:47:50 by lprior           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,9 @@ HEADER = libft.h
 
 SRC = ft_fwpa.c ft_parsec.c ft_parsef.c ft_printf.c ft_basic_print.c \
 	ft_print_pup.c ft_wchar_bonus.c ft_parse_tools.c ft_check.c ft_prints.c \
-	ft_conversion_tools.c
 	
 OBJECTS = ft_fwpa.o ft_parsec.o ft_parsef.o ft_printf.o ft_basic_print.o \
 	ft_print_pup.o ft_wchar_bonus.o ft_parse_tools.o ft_check.o ft_prints.o \
-	ft_conversion_tools.o
 
 $(BIN):
 	@make -C libft

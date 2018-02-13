@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckrommen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 13:46:09 by ckrommen          #+#    #+#             */
-/*   Updated: 2017/09/28 15:57:25 by ckrommen         ###   ########.fr       */
+/*   Created: 2017/09/28 14:49:23 by lprior            #+#    #+#             */
+/*   Updated: 2017/10/05 17:09:41 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,26 @@
 
 char	*ft_itoa(int nbr)
 {
-	int		length;
 	int		sign;
+	int		count;
 	char	*str;
 
+	count = 1;
 	sign = nbr;
-	length = 1;
 	while (sign /= 10)
-		length++;
+		count++;
 	sign = nbr < 0 ? 1 : 0;
-	length = nbr < 0 ? length += 1 : length;
+	count = nbr < 0 ? count += 1 : count;
 	if (nbr == -2147483648)
 		return (str = ft_strdup("-2147483648"));
-	str = ft_strnew(length);
-	if (!str)
+	if (!(str = ft_strnew(count)))
 		return (NULL);
-	if (sign)
+	if (sign == 1)
 		str[0] = '-';
 	nbr = nbr < 0 ? nbr *= -1 : nbr;
-	while (--length >= sign)
+	while (--count >= sign)
 	{
-		str[length] = (nbr >= 10) ? (nbr % 10) + 48 : nbr + 48;
+		str[count] = nbr >= 10 ? (nbr % 10) + 48 : nbr + 48;
 		nbr /= 10;
 	}
 	str[ft_strlen(str)] = '\0';

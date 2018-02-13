@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iseven.c                                        :+:      :+:    :+:   */
+/*   ft_wcount.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckrommen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/03 13:36:36 by ckrommen          #+#    #+#             */
-/*   Updated: 2017/10/03 13:37:11 by ckrommen         ###   ########.fr       */
+/*   Created: 2017/10/05 17:01:56 by lprior            #+#    #+#             */
+/*   Updated: 2017/10/05 17:14:30 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_iseven(int n)
+int	ft_wcount(char *s, char c)
 {
-	return (n % 2 == 0 ? 1 : 0);
+	int i;
+	int words;
+
+	words = 0;
+	i = 0;
+	while (s[i])
+	{
+		while (s[i] == c && s[i] != '\0')
+			i++;
+		if (s[i] == '\0')
+			words++;
+		while (s[i] != c && s[i] != '\0')
+			i++;
+	}
+	return (words);
 }

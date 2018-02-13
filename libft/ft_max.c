@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsubcount.c                                   :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckrommen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/03 12:52:35 by ckrommen          #+#    #+#             */
-/*   Updated: 2017/10/03 12:52:54 by ckrommen         ###   ########.fr       */
+/*   Created: 2017/10/05 17:06:44 by lprior            #+#    #+#             */
+/*   Updated: 2017/10/05 17:08:10 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strsubcount(char const *s, int index, char c)
+int	ft_max(int *tab, unsigned int len)
 {
-	int i;
+	int				max;
+	unsigned int	i;
 
 	i = 0;
-	while (s[index] != c && s[index])
+	if (len < 1)
+		return (0);
+	max = tab[0];
+	while (i < len)
 	{
-		index++;
+		if (tab[i] > max)
+			max = tab[i];
 		i++;
 	}
-	return (i);
+	return (max);
 }
