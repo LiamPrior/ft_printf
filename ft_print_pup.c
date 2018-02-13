@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 13:23:22 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/09 18:31:03 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/12 17:31:39 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,28 @@ void ft_print_unsigned_int(t_flags *tools, va_list ap)
 {
     unsigned long long int number;
     int dis;
+    char *dt_holder;
 
     if ((number = ft_sort_unsigned_args(tools, ap)) == 0)
         number = ft_check_unsigned_int(tools, ap);
     dis = (tools->prec > -1 || tools->prec == -100) ? 1 : 0;
     ft_parse_unsigned_int_tools(tools, number);//i need to do conversions to get the length of the number.
+    printf("[%c]\n", tools->brand);
+    if (tools->brand == 'o' || tools->brand == 'O')
+        dt_holder = ft_convert_oct(number);
+    else if (number <= 9223372036854775807 && (tools->brand == 'u' 
+            || tools->brand == 'U'))
+        dt_holder = ft_itoa(number);
+    else if (tools->brand == 'x' || tools->brand == 'X')
+        dt_holder = ft_convert_hex(number);
+    else if (number > 9223372036854775807 && (tools->brand == 'u' 
+            || tools->brand == 'U'))
+        dt_holder = ft_ulltoa(number);
+    tools->len = ft_strlen(dt_holder);
+
+
+
+
 }
 
 void ft_print_precision(t_flags *tools, va_list ap)
