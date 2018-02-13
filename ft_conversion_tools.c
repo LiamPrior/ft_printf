@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:34:47 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/12 18:58:08 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/13 14:18:42 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char *ft_convert_oct(unsigned long int number)
 
     print = ft_strnew(22);
     if (number < 0)
-        return ("errno");
+        return ("errno: Unsigned Only!");
     if (number == 0)
     {
         print[i] = '0';
@@ -70,9 +70,9 @@ char *ft_convert_oct(unsigned long int number)
     while (number)
     {
         print[i] = (number % 8) + 48;
-        nb /= 8;
+        number /= 8;
+        i++;
     }
     print[i] = '\0';
     return (ft_strrev(print));
-
 }
