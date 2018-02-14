@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 18:26:23 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/13 15:51:49 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/14 12:29:46 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ long long int ft_sort_signed_args(t_flags *tools, va_list ap)
         return (0);
 }
 //probably going to not use this.
-void    ft_check_brand(t_flags *tools, long long int nb)
-{
-
-    nb = nb * 1;
-    tools->prec = tools->prec * 1;
-
-
-}
+//void    ft_check_brand(t_flags *tools, long long int nb)
+//{
+//
+ //   nb = nb * 1;
+ //   tools->prec = tools->prec * 1;
+//
+//
+//}
