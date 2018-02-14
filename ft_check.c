@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 18:26:23 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/12 15:46:14 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/13 15:51:49 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ long long int ft_sort_signed_args(t_flags *tools, va_list ap)
     else if (tools->arg == 2)
         return (va_arg(ap, intmax_t));
     else if (tools->arg == 3)
-        return ((short int)va_arg(ap, void*));
+        return ((unsigned short int)va_arg(ap, void*));
     else if (tools->arg == 4)
        return ((long int)va_arg(ap, void*));
     else if (tools->arg == 5)
-        return ((long long int)va_arg(ap, void*));
+        return ((unsigned char)va_arg(ap, void*));
     else if (tools->arg == 6)
-        return ((long long int)va_arg(ap, void*));
+        return ((unsigned long long int)va_arg(ap, void*));
     else
         return (0);
 }

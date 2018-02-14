@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 13:23:22 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/12 17:31:39 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/13 14:19:02 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void ft_print_unsigned_int(t_flags *tools, va_list ap)
     ft_parse_unsigned_int_tools(tools, number);//i need to do conversions to get the length of the number.
     printf("[%c]\n", tools->brand);
     if (tools->brand == 'o' || tools->brand == 'O')
-        dt_holder = ft_convert_oct(number);
+        dt_holder = ft_convert_oct(number);//octal done!
     else if (number <= 9223372036854775807 && (tools->brand == 'u' 
             || tools->brand == 'U'))
         dt_holder = ft_itoa(number);

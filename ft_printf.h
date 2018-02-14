@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by lprior	           #+#    #+#             */
-/*   Updated: 2018/02/12 12:36:32 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/13 14:20:40 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct	s_flags
 	int		width;
 	int		prec;
 	int		arg;
-	int		ret;
+//	int		ret;
 	int		len;
 }				t_flags;
 
@@ -66,5 +66,6 @@ void 	ft_print_int2(t_flags *tools, long long int number, int dis);
 void    ft_print_prec(t_flags *tools);
 void    ft_parse_unsigned_int_tools(t_flags *tools, unsigned long long int nb);
 void    ft_check_brand(t_flags *tools, long long int nb);
+char 	*ft_convert_oct(unsigned long int number);
 
 #endif

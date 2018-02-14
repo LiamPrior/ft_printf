@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:34:47 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/13 14:18:42 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/13 16:27:15 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,45 @@ char *ft_convert_oct(unsigned long int number)
     }
     print[i] = '\0';
     return (ft_strrev(print));
+}
+	// char		*print;
+	// int			i;
+
+	// i = 0;
+	// print = ft_memalloc(21);
+	// if (nb == 0)
+	// 	print[i] = '0';
+	// if (type == 'x' || type == 'p')
+	// 	while (nb != 0)
+	// 	{
+	// 		print[i++] = "0123456789abcdef"[nb % 16];
+	// 		nb /= 16;
+	// 	}
+	// else
+	// 	while (nb != 0)
+	// 	{
+	// 		print[i++] = "0123456789ABCDEF"[nb % 16];
+	// 		nb /= 16;
+	// 	}
+    // return (ft_strrev(print));
+    
+char *ft_convert_hex(unsigned long int number, t_flags *tools)
+{
+    char *print;
+    int i;
+    
+    i = 0;
+    if (number = 0)
+        print[i] = '0';
+    print = strnew(21);
+	while (number && tools->brand == 'x')
+	{
+		print[i++] = "0123456789abcdef"[number % 16];
+		number /= 16;
+	}
+	while (number && tools->brand == 'X')
+	{
+		print[i++] = "0123456789ABCDEF"[number % 16];
+		number /= 16;
+	}
 }
