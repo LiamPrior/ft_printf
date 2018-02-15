@@ -6,7 +6,7 @@
 #    By: lprior <lprior@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/24 19:14:15 by lprior            #+#    #+#              #
-#    Updated: 2017/10/05 17:13:46 by lprior           ###   ########.fr        #
+#    Updated: 2018/02/13 16:16:58 by lprior           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c \
 ft_strtrim.c ft_strsplit.c ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c \
 ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c \
-ft_wcount.c ft_swap.c ft_charcount.c ft_max.c ft_ishidden.c
+ft_wcount.c ft_swap.c ft_charcount.c ft_max.c ft_ishidden.c ft_strrev.c
 
 OBJECTS = ft_isprint.o ft_memcpy.o ft_strcat.o ft_strlcat.o ft_strncpy.o \
 ft_toupper.o ft_isalnum.o ft_memccpy.o ft_strchr.o ft_strlen.o ft_strnstr.o \
@@ -36,7 +36,7 @@ ft_strmap.o ft_strmapi.o ft_strequ.o ft_strnequ.o ft_strsub.o ft_strjoin.o \
 ft_strtrim.o ft_strsplit.o ft_itoa.o ft_putchar.o ft_putstr.o ft_putendl.o \
 ft_putnbr.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o \
 ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o ft_lstmap.o \
-ft_wcount.o ft_swap.o ft_charcount.o ft_max.o ft_ishidden.o
+ft_wcount.o ft_swap.o ft_charcount.o ft_max.o ft_ishidden.o ft_strrev.o
 
 HEADER = libft.h
 

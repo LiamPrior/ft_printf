@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by lprior	           #+#    #+#             */
-/*   Updated: 2018/02/14 12:30:09 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/15 13:25:06 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_print_pointer(t_flags *tools, va_list ap);
 void	ft_print_int(t_flags *tools, va_list ap);
 void	ft_print_unsigned_int(t_flags *tools, va_list ap);
 void	ft_print_char(t_flags *tools, va_list ap);
-void	ft_print_precision(t_flags *tools, va_list ap);
+void	ft_print_precent(t_flags *tools, va_list ap);
 void	ft_print_binary(t_flags *tools, va_list ap);
 void 	ft_check_type2(char format, t_flags *tools, va_list ap);
 void    ft_parse_char_tool(t_flags *tools);
@@ -65,8 +65,9 @@ void 	ft_print_zeros(t_flags *tools);
 void 	ft_print_int2(t_flags *tools, long long int number, int dis);
 void    ft_print_prec(t_flags *tools);
 void    ft_parse_unsigned_int_tools(t_flags *tools, unsigned long long int nb);
-//void    ft_check_brand(t_flags *tools, long long int nb);
 char 	*ft_otoa(unsigned long int number);
-char *ft_htoa(unsigned long int number, t_flags *tools);
+char 	*ft_htoa(unsigned long int number, t_flags *tools);
+char 	*ft_ullitoa(unsigned long long int number);
+
 
 #endif

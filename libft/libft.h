@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/22 17:27:36 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/09 18:54:17 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/13 16:15:58 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ void				ft_swap(int *a, int *b);
 int					ft_charcount(char *str, char c);
 int					ft_max(int *tab, unsigned int len);
 int					ft_ishidden(char *str);
+char				*ft_strrev(char *str);
 
 #endif

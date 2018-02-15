@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/13 15:52:13 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/15 13:35:57 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,8 +159,9 @@ int main()
 
 // 	printf("[%2x]\n", 9);
 // 	ft_printf("[%2x]\n", 9);
-	unsigned char swag = 'h';
-	/////////////////////////////////////////////9223372036854775807
-	printf("x = [%hx]\n X = [%hX]\n u = [%hu]\n o = [%ho]\n O = [%hO]\n", swag, swag, swag, swag, swag);
+	// unsigned char swag = 'h';
+    /////////////////////////////////////////////9223372036854775807
+    // printf("%llo\n", 18446744073709551615);
+	// printf("x = [%hx]\n X = [%hX]\n u = [%hu]\n o = [%ho]\n O = [%hO]\n", swag, swag, swag, swag, swag);
     return (0);
 }

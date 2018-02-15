@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 13:23:22 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/14 12:20:05 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/15 13:27:37 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ void ft_print_unsigned_int(t_flags *tools, va_list ap)
             || tools->brand == 'U'))
         dt_holder = ft_itoa(number);
     else if (tools->brand == 'x' || tools->brand == 'X')
-        dt_holder = ft_htoa(number);
+        dt_holder = ft_htoa(number, tools);
     else if (number > 9223372036854775807 && (tools->brand == 'u' 
             || tools->brand == 'U'))
-        dt_holder = ft_ulltoa(number);
+        dt_holder = ft_ullitoa(number);
     tools->len = ft_strlen(dt_holder);
 
 
@@ -76,7 +76,7 @@ void ft_print_unsigned_int(t_flags *tools, va_list ap)
 
 }
 
-void ft_print_precision(t_flags *tools, va_list ap)
+void ft_print_percent(t_flags *tools, va_list ap)
 {
    int i;
 
