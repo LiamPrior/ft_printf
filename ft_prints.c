@@ -6,13 +6,13 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:11:08 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/09 11:36:03 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/15 19:10:07 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_print(int start, int end, char *format)
+void    ft_print(int start, int end, char *format)
 {
     int i;
 
@@ -26,7 +26,7 @@ void ft_print(int start, int end, char *format)
     }
 }
 
-void ft_print_zeros(t_flags *tools)
+void    ft_print_zeros(t_flags *tools)
 {
     while (tools->width-- >= 1)
     {
@@ -43,14 +43,13 @@ void    ft_print_prec(t_flags *tools)
         while (tools->prec-- >= 1)
             ft_putchar('0');
 }
-// void	print_plus(t_flags *bag, long int *nb)
-// {
-// 	if (PLUS == true && *nb > -1)
-// 		ft_putchar('+', bag);
-// 	if (*nb < 0 && *nb != (LL_MIN))
-// 	{
-// 		ft_putchar('-', bag);
-// 		*nb *= -1;
-// 	}
-// 	PLUS = false;
-// }
+void ft_print_address(t_flags *tools, unsigned long long int number)
+{
+    if (tools->brand == 'x' && number != 0)//how am i gonna print the rest capital? also if prec is present it can make it so a space is in the front.
+        write(1, "0x", 2);
+    else if ((tools->brand == 'o' || tools->brand == 'O') && tools->prec - tools->len < 0 && number != 0)
+        write(1, "0", 1);
+    else if (tools->brand == 'X' && number != 0) 
+        write(1, "0X", 2);
+    tools->hashtag = 0;
+}

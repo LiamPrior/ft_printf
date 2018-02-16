@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/13 15:15:03 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/15 15:40:01 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void    ft_check_flags(char *format, int *i, t_flags *tools)
         else if (format[*i] == ' ' && tools->positive == 0)
             tools->space = 1;
         else if (format[*i] == '#')
-            tools->hash = 1;
+            tools->hashtag = 1;
         else if (format[*i] == '0' && tools->negative == 0)
             tools->zeros = 1;
         (*i)++;

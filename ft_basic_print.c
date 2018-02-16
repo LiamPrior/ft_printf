@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/12 14:56:00 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/15 18:31:32 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void ft_print_int(t_flags *tools, va_list ap)
 
     if ((number = ft_sort_signed_args(tools, ap)) == 0)
         number = ft_check_signed_int(tools, ap);
-        dis = (tools->prec > -1 || tools->prec == -100) ? 1 : 0;
+    dis = (tools->prec > -1 || tools->prec == -100) ? 1 : 0;
     ft_parse_int_tools(tools, number);
     if (tools->zeros == 1 && tools->positive == 1 && number > -1)
     {
