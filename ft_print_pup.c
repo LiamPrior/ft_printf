@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 13:23:22 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 20:31:19 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/15 21:04:26 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void    ft_print_unsigned_int2(t_flags *tools, unsigned long long int number, in
 {
     // printf("width == [%d]\n", tools->width);
     if (tools->hashtag == 1 && tools->width <= 0)
+        ft_print_address(tools, number);
+    else if (tools->hashtag == 1 && tools->zeros == 1)
         ft_print_address(tools, number);
     //printing her width
     if (tools->zeros == 1)// && tools->prec > 0 && dis != -100)

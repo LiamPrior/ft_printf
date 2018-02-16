@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 20:53:45 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/15 21:04:48 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,8 @@ int main()
     // ft_printf("%lu\n", 9223372036854775807);
     // printf("%llu\n", 18446744073709551615);
     // ft_printf("%llu\n", 18446744073709551615);
+
+
    	printf("t: normal:			[%x]\n", 1244);
 	ft_printf("m: normal:			[%x]\n", 1244);
 	printf("zero:				[%0x]\n", 1244);
@@ -220,7 +222,9 @@ int main()
 	printf("#x:				[%#x]\n", 0);
 	ft_printf("#x:				[%#x]\n", 0);
 	printf("#0 width 8:			[%#08x]\n", 42);
-	ft_printf("#0 width 8:			[%#08x]\n", 42);
+    ft_printf("#0 width 8:			[%#08x]\n", 42);
+ 	printf("#0 width 8:			[%#8x]\n", 42);
+    ft_printf("#0 width 8:			[%#8x]\n", 42);   
 	printf("# prec .:			[%#.x]\n", 0);
 	ft_printf("# prec .:			[%#.x]\n", 0);
 	printf("width 5 prec .:			[%5.x]\n", 0);
@@ -228,6 +232,53 @@ int main()
 	printf("width 5 prec 0:			[%5.0x]\n", 0);
 	ft_printf("width 5 prec 0:			[%5.0x]\n", 0);
 
+
+
+
+
+
+    // printf("t: normal:			[%X]\n", 1244);
+	// ft_printf("m: normal:			[%X]\n", 1244);
+	// printf("zero:				[%0X]\n", 1244);
+	// ft_printf("zero:				[%0X]\n", 1244);
+	// printf("width 10:			[%10X]\n", 1244);
+	// ft_printf("width 10:			[%10X]\n", 1244);
+	// printf("minus and width 10:		[%-10X]\n", 1244);
+	// ft_printf("minus and width 10:		[%-10X]\n", 1244);
+	// printf("hash:				[%#X]\n", 1244);
+	// ft_printf("hash:				[%#X]\n", 1244);
+	// printf("precyzja 1:			[%.1X]\n", 1244);
+	// ft_printf("precyzja 1:			[%.1X]\n", 1244);
+	// printf("width 10 prec 6:		[%010.6X]\n", 1244);
+    // ft_printf("width 10 prec 6:		[%010.6X]\n", 1244);
+	// printf("# 0 width 10 prec 6:		[%#010.6X]\n", 1244);
+    // ft_printf("# 0 width 10 prec 6:		[%#010.6X]\n", 1244);
+    // printf("# width 10 prec 6:		[%#10.6X]\n", 1244);
+    // ft_printf("# width 10 prec 6:		[%#10.6X]\n", 1244);
+    // printf("# [%#X]\n", 1244);
+    // ft_printf("# [%#X]\n", 1244);
+    // printf("# and width 10 [%#10X]\n", 1244);
+    // ft_printf("# and width 10 [%#10X]\n", 1244);
+    // printf("# prec 10[%#.10X]\n", 1244);
+    // ft_printf("# prec 10[%#.10X]\n", 1244);
+	// printf("prec .:				[%.X]\n", 0);
+	// ft_printf("prec .:				[%.X]\n", 0);
+	// printf("lx:				[%lX]\n", 4294967296);
+	// ft_printf("lx:				[%lX]\n", 4294967296);
+	// printf("x:				[%X]\n", 0);
+	// ft_printf("x:				[%X]\n", 0);
+	// printf("X:				[%X]\n", 0);
+	// ft_printf("X:				[%X]\n", 0);
+	// printf("#x:				[%#X]\n", 0);
+	// ft_printf("#x:				[%#X]\n", 0);
+	// printf("#0 width 8:			[%#08X]\n", 42);
+	// ft_printf("#0 width 8:			[%#08X]\n", 42);
+	// printf("# prec .:			[%#.X]\n", 0);
+	// ft_printf("# prec .:			[%#.X]\n", 0);
+	// printf("width 5 prec .:			[%5.X]\n", 0);
+	// ft_printf("width 5 prec .:			[%5.X]\n", 0);
+	// printf("width 5 prec 0:			[%5.0X]\n", 0);
+	// ft_printf("width 5 prec 0:			[%5.0X]\n", 0);
 
 // 	printf("[%2x]\n", 9);
 // 	ft_printf("[%2x]\n", 9);
