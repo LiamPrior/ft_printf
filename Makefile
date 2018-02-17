@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
-HEADER = libft.h
+HEADER = libft.h ft_printf.h
 
 SRC = ft_fwpa.c ft_parsec.c ft_parsef.c ft_printf.c ft_basic_print.c \
 	ft_print_pup.c ft_wchar_bonus.c ft_parse_tools.c ft_check.c ft_prints.c \
