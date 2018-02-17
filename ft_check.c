@@ -6,13 +6,13 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 18:26:23 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/16 19:01:07 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 12:57:07 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_check_signed_int(t_flags *tools, va_list ap)
+int ft_check_signed_int(t_flags *tools, va_list ap)//may have broke this.
 {
     if (tools->brand == 'd' || tools->brand == 'i')
 		return ((int)va_arg(ap, void*));
@@ -21,6 +21,7 @@ int ft_check_signed_int(t_flags *tools, va_list ap)
 
 unsigned long long int ft_check_unsigned_int(t_flags *tools, va_list ap)
 {
+    // printf("HERE\n");
     if (tools->brand == 'U' || tools->brand == 'O')
         return ((unsigned long long int)va_arg(ap, void*));
     else if (tools->brand == 'u' || tools->brand == 'o' || tools->brand == 'X' 
@@ -45,7 +46,7 @@ unsigned long long int ft_sort_unsigned_args(t_flags *tools, va_list ap)
     else if (tools->arg == 6)
         return ((unsigned long long int)va_arg(ap, void*));  
     else
-        return (0);
+        return (ft_check_unsigned_int(tools, ap));
 }
     
 long long int ft_sort_signed_args(t_flags *tools, va_list ap)
@@ -63,5 +64,5 @@ long long int ft_sort_signed_args(t_flags *tools, va_list ap)
     else if (tools->arg == 6)
         return ((long long int)va_arg(ap, void*));
     else
-        return (0);
+        return (ft_check_signed_int(tools, ap));//i may have broke this
 }

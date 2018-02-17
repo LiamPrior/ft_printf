@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 13:23:22 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 12:01:30 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 13:10:20 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void ft_pui2(t_flags *tools, unsigned long long int num, int dis, char *dt_hold)
         ft_print_address(tools, num);
     while (tools->prec-- > 0 && dis != 0)
         ft_putchar('0');
-    if (!(dis == 1 || num == 0))
+    if (!(dis == 1 && num == 0))
         ft_putstr(dt_hold);
     while (tools->width-- > 0)
         ft_putchar(' ');
@@ -64,9 +64,9 @@ void ft_print_unsigned_int(t_flags *tools, va_list ap)
     int dis;
     char *dt_holder;
 
-    if ((number = ft_sort_unsigned_args(tools, ap)) == 0)
-        number = ft_check_unsigned_int(tools, ap);
-    dis = ((tools->prec > -1 || tools->prec == -100)) ? 1 : 0;
+    number = ft_sort_unsigned_args(tools, ap);
+    dis = ((tools->prec > -1 || tools->prec == -100) || (tools->hashtag == 1 && 
+        number == 0 && (tools->brand == 'o' || tools->brand == 'O'))) ? 1 : 0;
     if (number <= 9223372036854775807 && (tools->brand == 'o' 
         || tools->brand == 'O'))
         dt_holder = ft_otoa(number);
