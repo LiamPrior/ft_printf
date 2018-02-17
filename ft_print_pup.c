@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 13:23:22 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/16 19:02:16 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 12:01:30 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void ft_pui2(t_flags *tools, unsigned long long int num, int dis, char *dt_hold)
         ft_print_address(tools, num);
     while (tools->prec-- > 0 && dis != 0)
         ft_putchar('0');
-    if (!(dis == 1 && num == 0))
+    if (!(dis == 1 || num == 0))
         ft_putstr(dt_hold);
     while (tools->width-- > 0)
         ft_putchar(' ');
