@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 18:31:32 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/16 12:57:15 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void ft_print_string(t_flags *tools, va_list ap)
     ft_parse_char_tool(tools);
     while (tools->negative == 0 && tools->width-- > 0)
     {
+        //i can just put ft_print_zeros here!
         if (tools->zeros == 1)
              ft_putchar('0');
         else

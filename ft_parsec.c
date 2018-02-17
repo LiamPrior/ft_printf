@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 15:36:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 17:18:13 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/16 15:54:28 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ void ft_check_type2(char format, t_flags *tools, va_list ap)
 		|| format == 'x' || format == 'X' || format == 'D')
 	{
 		tools->brand = format;
-		ft_print_unsigned_int(tools, ap);
+		ft_print_unsigned_int(tools, ap);//done
 	}
 	else if (format == 'c')
 	{
 		tools->brand = format;
 		tools->len = 1;
-		ft_print_char(tools, ap);
+		ft_print_char(tools, ap);//done
 	}
 	else if (format == '%')
 	{
 		tools->brand = format;
-		// ft_print_precent(tools, ap);
+		ft_print_percent(tools);
 	}
 	else if (format == 'b')
 	{

@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 19:00:26 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/16 13:30:45 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,6 @@ void    ft_parse_int_tools(t_flags *tools, long int number)
         tools->space = 0;
 }
 
-// void			parse_unsigned_int(t_flags *bag)
-// {
-// 	DISPLAY = IF_PREC == true && PRECISION == 0 && ((HASH == false) ||
-// 			(HASH == true && (TYPE == 'x' || TYPE == 'X'))) ? false : true;
-// 	WIDTH -= (TYPE == 'x' || TYPE == 'X') && HASH == true ? 2 : 0;
-// 	WIDTH -= (TYPE == 'o' || TYPE == 'O') && HASH == true ? 1 : 0;
-// 	MINUS = PRECISION < 0 ? true : MINUS;
-// 	WIDTH = (PRECISION < 0) ? PRECISION * -1 : WIDTH;
-// 	PRECISION -= LEN;
-// 	WIDTH -= PRECISION > 0 ? PRECISION + LEN : LEN;
-// 	PLUS == true ? WIDTH-- : WIDTH;
-// 	ZERO = IF_PREC == true || SPACE == true ? false : ZERO;
-// }
-
 void    ft_parse_unsigned_int_tools(t_flags *tools, unsigned long long int number)
 {
     // if ((tools->prec == -100 && tools->hash == 0) || tools->hash == 1 && 
@@ -95,3 +81,19 @@ void    ft_parse_unsigned_int_tools(t_flags *tools, unsigned long long int numbe
     // if (tools->prec == -100 || tools->space == 1 || tools->prec >= 0)
         // tools->zeros = 0;
 }
+
+
+
+//  void	parse_ptr(t_flags *bag)
+// {
+// 	DISPLAY = (IF_PREC == true && PRECISION == 0) ? false : true;
+// 	HASH = true;
+// 	if (PRECISION < 0)
+// 	{
+// 		MINUS = true;
+// 		WIDTH = PRECISION * -1;
+// 	}
+// 	PRECISION -= LEN;
+// 	WIDTH -= (PRECISION > 0) ? (PRECISION + LEN + 2) : (LEN + 2);
+// 	ZERO = (IF_PREC == true) ? false : ZERO;
+// }

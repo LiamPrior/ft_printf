@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 13:23:22 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 21:04:26 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/16 16:14:56 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,74 +14,48 @@
 
 void ft_print_pointer(t_flags *tools, va_list ap)
 {
-   int i;
+   unsigned long long int address;
+   char                   *display;
 
-    i = va_arg(ap, int);
-    tools->prec = 0;
+    tools->width -= 2;
+    tools->width -= tools->len;
+    address = va_arg(ap, unsigned long long int);
+    display = ft_ptoa(address, tools);
+    tools->len = ft_strlen(display);
+    tools->width -= tools->len;
+    while (tools->width-- > 0 && tools->negative == 0)
+        ft_putchar(' ');
+    write(1, "0x", 2);
+    ft_putstr(display);
+    while (tools->width-- >= 0 && tools->negative == 1)
+        ft_putchar(' ');
+    free(display);
 }
 
-// void	print_hash(t_flags *bag, unsigned long long int nb)
-// {
-// 	if ((TYPE == 'x' || TYPE == 'X') && HASH == true && nb != 0)
-// 		(TYPE == 'x') ? ft_putstr("0x", bag) : ft_putstr("0X", bag);
-// 	if ((TYPE == 'o' || TYPE == 'O') && HASH == true && PRECISION - LEN < 0)
-// 		ft_putstr("0", bag);
-// 	if (TYPE == 'p' && HASH == true)
-// 		ft_putstr("0x", bag);
-// 	HASH = false;
-// }
-// void			print_unsigned_int(t_flags *bag, va_list ap)
-// {
-// 	unsigned long long int	nb;
-// 	char					*print;
-
-// 	nb = assign_value(bag, ap);
-// 	print = (nb > LL_MAX && (TYPE == 'u' || TYPE == 'U'))
-// 	? ft_ulltoa(nb) : convert(bag, nb);
-// 	LEN = nb == 0 ? 0 : ft_strlen(print);
-// 	parse_unsigned_int(bag);
-// 	if (ZERO == true)
-// 		print_hash(bag, nb);
-// 	if (MINUS == false)
-// 		while (WIDTH-- > 0)
-// 			ZERO == true ? ft_putchar('0', bag) : ft_putchar(' ', bag);
-// 	print_hash(bag, nb);
-// 	while (PRECISION-- > 0)
-// 		ft_putchar('0', bag);
-// 	if (DISPLAY == true)
-// 		ft_putstr(print, bag);
-// 	while (WIDTH-- > 0)
-// 		ft_putchar(' ', bag);
-// 	free(print);
-// }
-
-void    ft_print_unsigned_int2(t_flags *tools, unsigned long long int number, int dis, char *dt_holder)
+void ft_pui2(t_flags *tools, unsigned long long int num, int dis, char *dt_hold)
 {
-    // printf("width == [%d]\n", tools->width);
+    if ((tools->prec == -100 || tools->prec == -1) && num == 0 && 
+        tools->hashtag == 1 && (tools->brand == 'o' || tools->brand == 'O'))
+        ft_putchar('0');
     if (tools->hashtag == 1 && tools->width <= 0)
-        ft_print_address(tools, number);
+        ft_print_address(tools, num);
     else if (tools->hashtag == 1 && tools->zeros == 1)
-        ft_print_address(tools, number);
-    //printing her width
-    if (tools->zeros == 1)// && tools->prec > 0 && dis != -100)
-    {
+        ft_print_address(tools, num);
+    if (tools->zeros == 1)
         while (tools->width-- > 0)
             ft_putchar('0');
-    }
     else if (tools->negative == 0)
-    {
         while (tools->width-- > 0)
-            ft_putchar(' ');
-    }    
+            ft_putchar(' ');   
     if (tools->hashtag == 1)
-        ft_print_address(tools, number);    
+        ft_print_address(tools, num);
     while (tools->prec-- > 0 && dis != 0)
         ft_putchar('0');
-    if (!(dis == 1 && number == 0))
-        ft_putstr(dt_holder);
+    if (!(dis == 1 && num == 0))
+        ft_putstr(dt_hold);
     while (tools->width-- > 0)
         ft_putchar(' ');
-    free(dt_holder);
+    free(dt_hold);
 }
 
 void ft_print_unsigned_int(t_flags *tools, va_list ap)
@@ -89,31 +63,36 @@ void ft_print_unsigned_int(t_flags *tools, va_list ap)
     unsigned long long int number;
     int dis;
     char *dt_holder;
+
     if ((number = ft_sort_unsigned_args(tools, ap)) == 0)
         number = ft_check_unsigned_int(tools, ap);
-    dis = ((tools->prec > -1 || tools->prec == -100)) ? 1 : 0;//if i add && number != 0;
+    dis = ((tools->prec > -1 || tools->prec == -100)) ? 1 : 0;
     if (number <= 9223372036854775807 && (tools->brand == 'o' 
         || tools->brand == 'O'))
-        dt_holder = ft_otoa(number);//octal done!
+        dt_holder = ft_otoa(number);
     else if (number <= 4294967295 && (tools->brand == 'u' 
             || tools->brand == 'U'))
-        dt_holder = ft_uitoa(number);//done!
+        dt_holder = ft_uitoa(number);
     else if (tools->brand == 'x' || tools->brand == 'X')
-        dt_holder = ft_htoa(number, tools);//Hex done!
+        dt_holder = ft_htoa(number, tools);
     else if (number > 4294967295 && (tools->brand == 'u' 
-            || tools->brand == 'U'))//done!
+            || tools->brand == 'U'))
         dt_holder = ft_ullitoa(number);
     else
         dt_holder = (NULL);
     tools->len = ft_strlen(dt_holder);
     ft_parse_unsigned_int_tools(tools, number);
-    ft_print_unsigned_int2(tools, number, dis, dt_holder);
+    ft_pui2(tools, number, dis, dt_holder);
 }
 
-void ft_print_percent(t_flags *tools, va_list ap)
+void ft_print_percent(t_flags *tools)
 {
-   int i;
-
-    i = va_arg(ap, int);
-    tools->prec = 0;
+    tools->width -= 1;
+    while (tools->zeros == 1 && tools->width-- > 0)
+        ft_putchar('0');
+    while (tools->width-- > 0 && tools->negative == 0)
+        ft_putchar(' ');
+    ft_putchar('%');
+    while (tools->negative == 1 && tools->width-- >= 0)
+        ft_putchar(' ');
 }

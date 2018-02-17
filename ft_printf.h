@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by lprior	           #+#    #+#             */
-/*   Updated: 2018/02/15 19:53:01 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/16 15:54:08 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	ft_print_pointer(t_flags *tools, va_list ap);
 void	ft_print_int(t_flags *tools, va_list ap);
 void	ft_print_unsigned_int(t_flags *tools, va_list ap);
 void	ft_print_char(t_flags *tools, va_list ap);
-void	ft_print_precent(t_flags *tools, va_list ap);
+void	ft_print_percent(t_flags *tools);
 void	ft_print_binary(t_flags *tools, va_list ap);
 void 	ft_check_type2(char format, t_flags *tools, va_list ap);
 void    ft_parse_char_tool(t_flags *tools);
 void	ft_parse_int_tools(t_flags *tools, long int number);
-int ft_check_signed_int(t_flags *tools, va_list ap);
+int 	ft_check_signed_int(t_flags *tools, va_list ap);
 long long int ft_sort_signed_args(t_flags *tools, va_list ap);
 unsigned long long int ft_sort_unsigned_args(t_flags *tools, va_list ap);
 unsigned long long int ft_check_unsigned_int(t_flags *tools, va_list ap);
@@ -68,7 +68,8 @@ void    ft_parse_unsigned_int_tools(t_flags *tools, unsigned long long int numbe
 char 	*ft_otoa(unsigned long int number);
 char 	*ft_htoa(unsigned long int number, t_flags *tools);
 char 	*ft_ullitoa(unsigned long long int number);
-void    ft_print_unsigned_int2(t_flags *tools, unsigned long long int number, int dis, char *dt_holder);
+char 	*ft_ptoa(unsigned long int number, t_flags *tools);
+void    t_pui2(t_flags *tools, unsigned long long int num, int dis, char *dt_hold);
 void	ft_print_address(t_flags *tools, unsigned long long int number);
 char	*ft_uitoa(unsigned int nbr);
 

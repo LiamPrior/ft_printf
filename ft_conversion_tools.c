@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:34:47 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 20:32:47 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/16 13:25:52 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,27 @@ char *ft_otoa(unsigned long int number)
     print[i] = '\0';
     return (ft_strrev(print));
 }
+char *ft_ptoa(unsigned long int number, t_flags *tools)
+{
+	char *print;
+	int i;
 
+	i = 0;
+	print = ft_strnew(12);
+	if (number == 0)//may not need this
+		print[i] = '0';//^^^^^^
+	while (number && tools->brand == 'p')
+	{
+		print[i++] = "0123456789abcdef"[number % 16];
+		number /= 16;
+	}
+	return (ft_strrev(print));
+}
 char *ft_htoa(unsigned long int number, t_flags *tools)
 {
     char *print;
     int i;
-    
+
 	i = 0;
 	print = ft_strnew(18);
     if (number == 0)
