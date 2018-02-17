@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by lprior	           #+#    #+#             */
-/*   Updated: 2018/02/16 15:54:08 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/16 19:12:37 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	ft_print_int(t_flags *tools, va_list ap);
 void	ft_print_unsigned_int(t_flags *tools, va_list ap);
 void	ft_print_char(t_flags *tools, va_list ap);
 void	ft_print_percent(t_flags *tools);
-void	ft_print_binary(t_flags *tools, va_list ap);
 void 	ft_check_type2(char format, t_flags *tools, va_list ap);
 void    ft_parse_char_tool(t_flags *tools);
 void	ft_parse_int_tools(t_flags *tools, long int number);
