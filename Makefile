@@ -31,8 +31,6 @@ all: $(NAME)
 
 $(NAME):
 		gcc $(FLAGS) -c $(SRC) $(BIN) -I $(HEADER)
-		ar rc libftprintf.a $(OBJECTS) 
-		ranlib libftprintf.a
 
 clean:
 	rm -rf $(OBJECTS)
