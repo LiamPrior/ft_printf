@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 15:36:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/16 19:14:18 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/16 21:31:24 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void ft_check_type2(char format, t_flags *tools, va_list ap)
 	else if (format == '%')
 	{
 		tools->brand = format;
-		ft_print_percent(tools);//done
+		ft_print_percent(tools);
 	}
 	else
 		tools->brand = -1;
@@ -42,18 +42,18 @@ void ft_check_type(char format, t_flags *tools, va_list ap)
 		tools->brand = format;
 		ft_print_string(tools, ap);//done!
 	}
-	else if (format == 'S' || format == 'C')
+	else if (format == 'S')
 	{
 		tools->brand = format;
 		if (format == 'C')
 			ft_print_wchar(tools, ap);
-		else if (format == 'S')
+		else
 			ft_print_wchar_str(tools, ap);
 	}
 	else if (format == 'p')
 	{
 		tools->brand = format;
-		ft_print_pointer(tools, ap);//done
+		ft_print_pointer(tools, ap);
 	}
 	else if (format == 'd' || format == 'i' || format == 'D')
 	{
