@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 13:10:40 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 13:37:07 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,16 +258,16 @@ int main()
 // 	ft_printf("prec 0:				[%.0u]\n", 0);
 // 	printf("prec 0:				[%.0u]\n", 0);
 
-    ft_printf("[%05.2u]\n", 1);
-    printf("[%05.2u]\n", 1);
-    ft_printf("[%05.u]\n", 1);
-    printf("[%05.u]\n", 1);
-    ft_printf("[%05.1u]\n", 1);
-    printf("[%05.1u]\n", 1);
-    ft_printf("[%05.0u]\n", 1);
-    printf("[%05.0u]\n", 1);
-    ft_printf("%x\n", 21);
-    printf("%x\n", 21);
+    // ft_printf("[%05.2u]\n", 1);
+    // printf("[%05.2u]\n", 1);
+    // ft_printf("[%05.u]\n", 1);
+    // printf("[%05.u]\n", 1);
+    // ft_printf("[%05.1u]\n", 1);
+    // printf("[%05.1u]\n", 1);
+    // ft_printf("[%05.0u]\n", 1);
+    // printf("[%05.0u]\n", 1);
+    // ft_printf("%x\n", 21);
+    // printf("%x\n", 21);
     
 //     // printf("\n switch \n\n");
 
@@ -534,31 +534,33 @@ int main()
 // 	// printf("%D\n", -1);
 // 	// ft_printf("%D\n", -1);
 
-	unsigned short y = 0;
-	unsigned char c = 0;
-	unsigned long l = 0;
-	size_t	s = 0;
-	uintmax_t	u = 0;
-	unsigned long long	ull = 0;
+	// unsigned short y = 0;
+	// unsigned char c = 0;
+	// unsigned long l = 0;
+	// size_t	s = 0;
+	// uintmax_t	u = 0;
+	// unsigned long long	ull = 0;
 
-	printf("%#O\n", 0);
-	ft_printf("%#O\n", 0);
-	printf("hu: %hu size: %lu\n", y, sizeof(y));
-	ft_printf("hu: %hu size: %lu\n", y, sizeof(y));
-	printf("hhu: %hhu size: %lu\n", c, sizeof(c));
-	ft_printf("hhu: %hhu size: %lu\n", c, sizeof(c));
-	printf("lu: %lu size: %lu\n", l, sizeof(l));
-	ft_printf("l: %lu size: %lu\n", l, sizeof(l));
-	printf("lu: %lu size: %lu\n", s, sizeof(s));
-	ft_printf("lu: %lu size: %lu\n", s, sizeof(s));
-	printf("zu: %zu size: %lu\n", u, sizeof(u));
-	ft_printf("zu: %zu size: %lu\n", u, sizeof(u));
-	printf("ull: %llu size: %lu\n", ull, sizeof(ull));
-	ft_printf("ull: %llu size: %lu\n", ull, sizeof(ull));
+	// printf("%#O\n", 0);
+	// ft_printf("%#O\n", 0);
+	// printf("hu: %hu size: %lu\n", y, sizeof(y));
+	// ft_printf("hu: %hu size: %lu\n", y, sizeof(y));
+	// printf("hhu: %hhu size: %lu\n", c, sizeof(c));
+	// ft_printf("hhu: %hhu size: %lu\n", c, sizeof(c));
+	// printf("lu: %lu size: %lu\n", l, sizeof(l));
+	// ft_printf("l: %lu size: %lu\n", l, sizeof(l));
+	// printf("lu: %lu size: %lu\n", s, sizeof(s));
+	// ft_printf("lu: %lu size: %lu\n", s, sizeof(s));
+	// printf("zu: %zu size: %lu\n", u, sizeof(u));
+	// ft_printf("zu: %zu size: %lu\n", u, sizeof(u));
+	// printf("ull: %llu size: %lu\n", ull, sizeof(ull));
+	// ft_printf("ull: %llu size: %lu\n", ull, sizeof(ull));
 
 	// printf("Lalalala, 100%% des gens qui parlent à Ly adorent Ly. Ou Presque\n");
 	// ft_printf("Lalalala, 100%% des gens qui parlent à Ly adorent Ly. Ou Presque\n");
-	// printf("Lalalala, %d%% des gens qui parlent à Ly adorent Ly. Ou Presque.weird %lx\n", 100, 140734048821948);
-	// ft_printf("Lalalala, %d%% des gens qui parlent à Ly adorent Ly. Ou Presque.weird %lx\n", 100, 140734048821948);
+	// printf("Lalalala, %d%% d %s.\n", 100, "Ly");
+	// ft_printf("Lalalala, %d%% d %s.\n", 100, "Ly");
+	printf("Lalalala, %d%% des gens qui parlent à Ly adorent %s. Ou Presque.weird %lx\n", 100, "LY", 140734048821948);
+	ft_printf("Lalalala, %d%% des gens qui parlent à Ly adorent %s. Ou Presque.weird %lx\n", 100, "Ly", 140734048821948);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/16 17:06:35 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 13:35:54 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_build_tools(t_flags *tools)
 // 	print(start, i, format);
 // 	return (ret + i - start);
 // }
-
+// printf("Lalalala, %d%% d %s.\n", 100, "Ly");
 int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
 {
 	int i;
@@ -72,7 +72,7 @@ int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
 				i++;
 			start = i;
 		}
-		if (format[i] != '\0')
+		else if (format[i] != '\0')
 			i++;
 	}
 	ft_print(start, i, format);
