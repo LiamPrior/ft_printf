@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 15:38:46 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/16 17:06:35 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,34 @@ void	ft_build_tools(t_flags *tools)
 	tools->arg = 0;
 	tools->len = 0;
 }
+// int		solve(char *format, va_list ap)
+// {
+// 	int		i;
+// 	int		ret;
+// 	int		start;
+// 	t_flags bag;
+
+// 	i = 0;
+// 	start = 0;
+// 	ret = 0;
+// 	while (format[i])
+// 	{
+// 		if (format[i] == '%')
+// 		{
+// 			print(start, i, format);
+// 			ret += i - start;
+// 			bulid_bag(&bag);
+// 			gather_flags(format, &i, &bag, ap);
+// 			bag.type == 0 || bag.type == -1 ? i : i++;
+// 			print_argument(&bag, ap);
+// 			ret += bag.ret;
+// 			start = i;
+// 		}
+// 		format[i] != '\0' && format[i] != '%' ? i++ : i;
+// 	}
+// 	print(start, i, format);
+// 	return (ret + i - start);
+// }
 
 int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
 {
@@ -33,7 +61,6 @@ int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
 
 	i = 0;
 	start = 0;
-	// printf("IM HERE3\n");
 	while (format[i])
 	{
 		if (format[i] == '%')

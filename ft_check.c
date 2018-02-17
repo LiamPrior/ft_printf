@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 18:26:23 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 19:56:54 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/16 19:01:07 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int ft_check_signed_int(t_flags *tools, va_list ap)
 unsigned long long int ft_check_unsigned_int(t_flags *tools, va_list ap)
 {
     if (tools->brand == 'U' || tools->brand == 'O')
-		return ((unsigned long long int)va_arg(ap, void*));
+        return ((unsigned long long int)va_arg(ap, void*));
     else if (tools->brand == 'u' || tools->brand == 'o' || tools->brand == 'X' 
-            || tools->brand == 'x' || tools->brand == 'D')
-		return ((unsigned long long int)va_arg(ap, void*)); 
+            || tools->brand == 'x')
+        return ((unsigned int)va_arg(ap, void*));
     return ((unsigned long long int)NULL);
 }
 
@@ -41,7 +41,7 @@ unsigned long long int ft_sort_unsigned_args(t_flags *tools, va_list ap)
     else if (tools->arg == 4)
        return ((unsigned long int)va_arg(ap, void*));
     else if (tools->arg == 5)
-        return ((unsigned long long int)va_arg(ap, void*));
+        return ((unsigned char)va_arg(ap, void*));
     else if (tools->arg == 6)
         return ((unsigned long long int)va_arg(ap, void*));  
     else
@@ -55,13 +55,13 @@ long long int ft_sort_signed_args(t_flags *tools, va_list ap)
     else if (tools->arg == 2)
         return (va_arg(ap, intmax_t));
     else if (tools->arg == 3)
-        return ((unsigned short int)va_arg(ap, void*));
-    else if (tools->arg == 4)
+        return ((short int)va_arg(ap, void*));
+    else if (tools->arg == 4 || tools->brand == 'D')
        return ((long int)va_arg(ap, void*));
     else if (tools->arg == 5)
-        return ((unsigned char)va_arg(ap, void*));
+        return ((char)va_arg(ap, void*));
     else if (tools->arg == 6)
-        return ((unsigned long long int)va_arg(ap, void*));
+        return ((long long int)va_arg(ap, void*));
     else
         return (0);
 }
