@@ -6,7 +6,7 @@
 #    By: lprior <lprior@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/22 10:44:33 by lprior            #+#    #+#              #
-#    Updated: 2018/02/17 17:40:56 by lprior           ###   ########.fr        #
+#    Updated: 2018/02/17 23:17:17 by lprior           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror 
 
-SRC = ft_fwpa.c ft_parsec.c ft_parsef.c ft_printf.c ft_basic_print.c \
+SRC = ft_fwap.c ft_parsec.c ft_parsef.c ft_printf.c ft_basic_print.c \
 	ft_print_pup.c ft_wchar_bonus.c ft_parse_tools.c ft_check.c ft_prints.c \
 	ft_conversion_tools.c
 

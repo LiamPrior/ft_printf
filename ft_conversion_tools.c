@@ -6,44 +6,45 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:34:47 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/16 13:25:52 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 23:14:31 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_otoa(unsigned long int number)
+char	*ft_otoa(unsigned long int number)
 {
-    char *print;
-    unsigned int i;
+	char			*print;
+	unsigned int	i;
 
 	i = 0;
-    print = ft_strnew(24);
-    if (number < i)
-        return ("errno: Unsigned Only!");//mya not ened this
-    if (number == 0)
-    {
-        print[i] = '0';
-        i++;
-    }
-    while (number)
-    {
-        print[i] = (number % 8) + 48;
-        number /= 8;
-        i++;
-    }
-    print[i] = '\0';
-    return (ft_strrev(print));
+	print = ft_strnew(24);
+	if (number < i)
+		return ("errno: Unsigned Only!");
+	if (number == 0)
+	{
+		print[i] = '0';
+		i++;
+	}
+	while (number)
+	{
+		print[i] = (number % 8) + 48;
+		number /= 8;
+		i++;
+	}
+	print[i] = '\0';
+	return (ft_strrev(print));
 }
-char *ft_ptoa(unsigned long int number, t_flags *tools)
+
+char	*ft_ptoa(unsigned long int number, t_flags *tools)
 {
-	char *print;
-	int i;
+	char	*print;
+	int		i;
 
 	i = 0;
 	print = ft_strnew(12);
-	if (number == 0)//may not need this
-		print[i] = '0';//^^^^^^
+	if (number == 0)
+		print[i] = '0';
 	while (number && tools->brand == 'p')
 	{
 		print[i++] = "0123456789abcdef"[number % 16];
@@ -51,15 +52,16 @@ char *ft_ptoa(unsigned long int number, t_flags *tools)
 	}
 	return (ft_strrev(print));
 }
-char *ft_htoa(unsigned long int number, t_flags *tools)
+
+char	*ft_htoa(unsigned long int number, t_flags *tools)
 {
-    char *print;
-    int i;
+	char	*print;
+	int		i;
 
 	i = 0;
 	print = ft_strnew(18);
-    if (number == 0)
-        print[i] = '0';
+	if (number == 0)
+		print[i] = '0';
 	while (number && tools->brand == 'x')
 	{
 		print[i++] = "0123456789abcdef"[number % 16];
@@ -94,12 +96,12 @@ char	*ft_ullitoa(unsigned long long int number)
 	return (str);
 }
 
-char *ft_uitoa(unsigned int nbr)
+char	*ft_uitoa(unsigned int nbr)
 {
 	unsigned int	tmp;
 	unsigned int	count;
 	char			*str;
-	
+
 	count = 1;
 	tmp = nbr;
 	while (tmp /= 10)

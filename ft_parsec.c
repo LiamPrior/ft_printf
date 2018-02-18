@@ -6,13 +6,13 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 15:36:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 22:44:51 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 23:29:34 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_check_type2(char format, t_flags *tools, va_list ap)
+void	ft_check_type2(char format, t_flags *tools, va_list ap)
 {
 	if (format == 'o' || format == 'O' || format == 'u' || format == 'U'
 		|| format == 'x' || format == 'X')
@@ -31,36 +31,35 @@ void ft_check_type2(char format, t_flags *tools, va_list ap)
 		tools->brand = format;
 		ft_print_percent(tools);
 	}
-	// else if (tools->brand == 'S' && tools->arg != 7)
 	else
 		tools->brand = -1;
 }
 
-void ft_check_type(char format, t_flags *tools, va_list ap)
+void	ft_check_type(char form, t_flags *tools, va_list ap)
 {
-	if (format == 's' && tools->arg != 4)
+	if (form == 's' && tools->arg != 4)
 	{
-		tools->brand = format;
+		tools->brand = form;
 		ft_print_string(tools, ap);
 	}
-	else if (format == 'S' || (format == 'C' && tools->arg == 7) || format == 's')
+	else if (form == 'S' || (form == 'C' && tools->arg == 7) || form == 's')
 	{
-		tools->brand = format;
-		if (format == 'C')
+		tools->brand = form;
+		if (form == 'C')
 			ft_print_wchar(tools, ap);
-		else if (format == 'S' || format == 's')
+		else if (form == 'S' || form == 's')
 			ft_print_wchar_str(tools, ap);
 	}
-	else if (format == 'p')
+	else if (form == 'p')
 	{
-		tools->brand = format;
+		tools->brand = form;
 		ft_print_pointer(tools, ap);
 	}
-	else if (format == 'd' || format == 'i' || format == 'D')
+	else if (form == 'd' || form == 'i' || form == 'D')
 	{
-		tools->brand = format;
+		tools->brand = form;
 		ft_print_int(tools, ap);
 	}
 	else
-		ft_check_type2(format, tools, ap);
+		ft_check_type2(form, tools, ap);
 }
