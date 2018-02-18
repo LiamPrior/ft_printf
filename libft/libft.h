@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/22 17:27:36 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/13 16:15:58 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 01:29:46 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,9 @@ int					ft_charcount(char *str, char c);
 int					ft_max(int *tab, unsigned int len);
 int					ft_ishidden(char *str);
 char				*ft_strrev(char *str);
+
+void				ft_print_putnbr(long long int n, int *res);
+void				ft_print_putchar(char c, int *res);
+void				ft_print_putstr(char const *s, int *res);
 
 #endif

@@ -6,13 +6,18 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:11:08 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 23:45:05 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 01:28:22 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print(int start, int end, char *format)
+// void	add_result(t_flags *tools)
+// {
+// 	tools->retrn += 1;
+// }
+
+void	ft_print(int start, int end, char *format, int *res)
 {
 	int i;
 
@@ -21,7 +26,7 @@ void	ft_print(int start, int end, char *format)
 		i++;
 	while (i < end)
 	{
-		write(1, &(format[i]), 1);
+		ft_print_putchar(format[i], res);
 		i++;
 	}
 }
@@ -31,9 +36,9 @@ void	ft_print_zeros(t_flags *tools)
 	while (tools->width-- >= 1)
 	{
 		if (tools->zeros == 1)
-			ft_putchar('0');
+			ft_print_putchar('0', &(tools->retrn));
 		else if (tools->zeros == 0)
-			ft_putchar(' ');
+			ft_print_putchar(' ', &(tools->retrn));
 	}
 }
 
@@ -41,17 +46,17 @@ void	ft_print_prec(t_flags *tools)
 {
 	if (tools->prec != -100)
 		while (tools->prec-- >= 1)
-			ft_putchar('0');
+			ft_print_putchar('0', &(tools->retrn));
 }
 
 void	ft_print_address(t_flags *tools, unsigned long long int number)
 {
 	if (tools->brand == 'x' && number != 0)
-		write(1, "0x", 2);
+		ft_print_putstr("0x", &(tools->retrn));
 	else if ((tools->brand == 'o' || tools->brand == 'O') &&
 			tools->prec - tools->len < 0 && number != 0)
-		write(1, "0", 1);
+		ft_print_putchar('0', &(tools->retrn));
 	else if (tools->brand == 'X' && number != 0)
-		write(1, "0X", 2);
+		ft_print_putstr("0X", &(tools->retrn));
 	tools->hashtag = 0;
 }

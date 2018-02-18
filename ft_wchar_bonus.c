@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:00:03 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 23:48:06 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 01:31:22 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ void	ft_print_wchar(t_flags *tools, va_list ap)
 	c = va_arg(ap, wint_t);
 	if (tools->negative == 0)
 		while (tools->width-- > 0)
-			ft_putchar(' ');
-	ft_putstr(ft_unitoa(c));
+			ft_print_putchar(' ', &(tools->retrn));
+	ft_print_putstr(ft_unitoa(c), &(tools->retrn));
 	if (tools->negative == 1)
 		while (tools->width-- >= 0)
-			ft_putchar(' ');
+			ft_print_putchar(' ', &(tools->retrn));
 }
 
 void	ft_print_wchar_str(t_flags *tools, va_list ap)
@@ -69,9 +69,9 @@ void	ft_print_wchar_str(t_flags *tools, va_list ap)
 	tools->width -= tools->len;
 	if (tools->negative == 0)
 		while (tools->width-- > 0)
-			ft_putchar(' ');
-	ft_putstr(str);
+			ft_print_putchar(' ', &(tools->retrn));
+	ft_print_putstr(str, &(tools->retrn));
 	if (tools->negative == 1)
 		while (tools->width-- >= 0)
-			ft_putchar(' ');
+			ft_print_putchar(' ', &(tools->retrn));
 }

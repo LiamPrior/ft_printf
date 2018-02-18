@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 00:01:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 00:05:37 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 01:30:05 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_flags
 	int			space;
 	int			hashtag;
 	char		brand;
+	int			retrn;
 	int			width;
 	int			prec;
 	int			arg;
@@ -43,7 +44,7 @@ typedef struct	s_flags
 int				ft_printf(const char *format, ...);
 int				ft_parse_format_print(char *format, va_list ap, t_flags *tools);
 void			ft_build_tools(t_flags *tools);
-void			ft_print(int start, int end, char *format);
+void			ft_print(int start, int end, char *format, int *res);
 void			ft_parse_flags(char *form, int *i, t_flags *tools, va_list ap);
 void			ft_check_fwap(char *format, int *i, t_flags *tools);
 void			ft_check_args(char *format, int *i, t_flags *tools);

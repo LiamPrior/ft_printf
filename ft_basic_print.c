@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 22:58:39 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 01:32:09 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,11 @@ void	ft_print_string(t_flags *tools, va_list ap)
 	tools->len = ft_strlen(string);
 	ft_parse_char_tool(tools);
 	while (tools->negative == 0 && tools->width-- > 0)
-	{
-		if (tools->zeros == 1)
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-	}
+		ft_print_putchar(' ', &(tools->retrn));
 	while ((tools->len-- > 0) && *string && tools->prec != -100)
-		ft_putchar(*string++);
+		ft_print_putchar(*string++, &(tools->retrn));
 	while (tools->width-- > 0)
-	{
-		if (tools->zeros == 1)
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-	}
+		ft_print_putchar(' ', &(tools->retrn));
 }
 
 void	ft_print_int2(t_flags *tools, long long int number, int dis)
@@ -45,12 +35,12 @@ void	ft_print_int2(t_flags *tools, long long int number, int dis)
 		ft_print_zeros(tools);
 	if (tools->positive == 1 && number >= 0)
 	{
-		ft_putchar('+');
+		ft_print_putchar('+', &(tools->retrn));
 		tools->positive = 0;
 	}
 	if (number <= -1)
 	{
-		ft_putchar('-');
+		ft_print_putchar('-', &(tools->retrn));
 		number *= -1;
 		tools->positive = 0;
 	}
@@ -58,14 +48,14 @@ void	ft_print_int2(t_flags *tools, long long int number, int dis)
 	if (dis == 1 && number == 0)
 	{
 		if (tools->zeros == 1)
-			ft_putchar('0');
+			ft_print_putchar('0', &(tools->retrn));
 		else if (tools->prec == -100)
-			ft_putchar(' ');
+			ft_print_putchar(' ', &(tools->retrn));
 	}
 	else
-		ft_putnbr(number);
+		ft_print_putnbr(number, &(tools->retrn));
 	while (tools->width-- >= 1)
-		ft_putchar(' ');
+		ft_print_putchar(' ', &(tools->retrn));
 }
 
 void	ft_print_int(t_flags *tools, va_list ap)
@@ -78,19 +68,19 @@ void	ft_print_int(t_flags *tools, va_list ap)
 	ft_parse_int_tools(tools, number);
 	if (tools->zeros == 1 && tools->positive == 1 && number > -1)
 	{
-		ft_putchar('+');
+		ft_print_putchar('+', &(tools->retrn));
 		tools->positive = 0;
 	}
 	if (tools->zeros == 1 && number <= -1)
 	{
-		ft_putchar('-');
+		ft_print_putchar('-', &(tools->retrn));
 		number *= -1;
 		tools->positive = 0;
 	}
 	if (tools->space == 1)
 	{
 		tools->width--;
-		ft_putchar(' ');
+		ft_print_putchar(' ', &(tools->retrn));
 	}
 	ft_print_int2(tools, number, dis);
 }
@@ -104,11 +94,11 @@ void	ft_print_char(t_flags *tools, va_list ap)
 	while (tools->negative == 0 && tools->width-- > 0)
 	{
 		if (tools->zeros == 1)
-			ft_putchar('0');
+			ft_print_putchar('0', &(tools->retrn));
 		else
-			ft_putchar(' ');
+			ft_print_putchar(' ', &(tools->retrn));
 	}
-	ft_putchar(leter);
+	ft_print_putchar(leter, &(tools->retrn));
 	while (tools->width-- > 0)
-		ft_putchar(' ');
+		ft_print_putchar(' ', &(tools->retrn));
 }

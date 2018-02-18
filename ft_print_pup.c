@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 13:23:22 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 23:40:29 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 01:53:33 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	ft_print_pointer(t_flags *tools, va_list ap)
 	tools->len = ft_strlen(display);
 	tools->width -= tools->len;
 	while (tools->width-- > 0 && tools->negative == 0)
-		ft_putchar(' ');
+		ft_print_putchar(' ', &(tools->retrn));
 	write(1, "0x", 2);
-	ft_putstr(display);
+	ft_print_putstr(display, &(tools->retrn));
 	while (tools->width-- >= 0 && tools->negative == 1)
-		ft_putchar(' ');
+		ft_print_putchar(' ', &(tools->retrn));
 	free(display);
 }
 
@@ -36,25 +36,25 @@ void	ft_pui2(t_flags *tools, unsigned long long int num, int dis, char *dt)
 {
 	if ((tools->prec == -100 || tools->prec == -1) && num == 0 &&
 		tools->hashtag == 1 && (tools->brand == 'o' || tools->brand == 'O'))
-		ft_putchar('0');
+		ft_print_putchar('0', &(tools->retrn));
 	if (tools->hashtag == 1 && tools->width <= 0)
 		ft_print_address(tools, num);
 	else if (tools->hashtag == 1 && tools->zeros == 1)
 		ft_print_address(tools, num);
 	if (tools->zeros == 1)
 		while (tools->width-- > 0)
-			ft_putchar('0');
+			ft_print_putchar('0', &(tools->retrn));
 	else if (tools->negative == 0)
 		while (tools->width-- > 0)
-			ft_putchar(' ');
+			ft_print_putchar(' ', &(tools->retrn));
 	if (tools->hashtag == 1)
 		ft_print_address(tools, num);
 	while (tools->prec-- > 0 && dis != 0)
-		ft_putchar('0');
+		ft_print_putchar('0', &(tools->retrn));
 	if (!(dis == 1 && num == 0))
-		ft_putstr(dt);
+		ft_print_putstr(dt, &(tools->retrn));
 	while (tools->width-- > 0)
-		ft_putchar(' ');
+		ft_print_putchar(' ', &(tools->retrn));
 	free(dt);
 }
 
@@ -89,10 +89,10 @@ void	ft_print_percent(t_flags *tools)
 {
 	tools->width -= 1;
 	while (tools->zeros == 1 && tools->width-- > 0)
-		ft_putchar('0');
+		ft_print_putchar('0', &(tools->retrn));
 	while (tools->width-- > 0 && tools->negative == 0)
-		ft_putchar(' ');
-	ft_putchar('%');
+		ft_print_putchar(' ', &(tools->retrn));
+	ft_print_putchar('%', &(tools->retrn));
 	while (tools->negative == 1 && tools->width-- >= 0)
-		ft_putchar(' ');
+		ft_print_putchar(' ', &(tools->retrn));
 }

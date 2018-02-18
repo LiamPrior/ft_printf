@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 23:53:41 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 01:41:22 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
 
 	i = 0;
 	start = 0;
+	tools->retrn = 0;
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			ft_build_tools(tools);
-			ft_print(start, i, format);
+			ft_print(start, i, format, &(tools->retrn));
 			ft_parse_flags(format, &i, tools, ap);
 			if (tools->brand != -1)
 				i++;
@@ -47,21 +48,29 @@ int		ft_parse_format_print(char *format, va_list ap, t_flags *tools)
 		else if (format[i] != '\0')
 			i++;
 	}
-	ft_print(start, i, format);
+	ft_print(start, i, format, &(tools->retrn));
 	return (i - start);
 }
 
 int		ft_printf(const char *format, ...)
 {
-	int			ret;
-	t_flags		tools;
+	t_flags		*tools;
 	va_list		ap;
 
 	va_start(ap, format);
-	if (!(ret = (ft_parse_format_print(((char *)format), ap, &tools))))
-		return (0);
-	return (0);
+	tools = (t_flags *)malloc(sizeof(t_flags));
+	ft_parse_format_print(((char *)format), ap, tools);
+	return (tools->retrn);
 }
+// int		ft_printf(const char *format, ...)
+// {
+// 	t_flags		tools;
+// 	va_list		ap;
+
+// 	va_start(ap, format);
+// 	ft_parse_format_print(((char *)format), ap, &tools);
+// 	return (tools->retrn);
+// }
 
 /*
 ** L is used to create wchar_t literals.
