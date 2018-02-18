@@ -6,17 +6,22 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by lprior	           #+#    #+#             */
-/*   Updated: 2018/02/17 12:27:31 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 17:41:01 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
 # include <stdarg.h>
-# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stddef.h>
+# include <stdint.h>
 # include <stdbool.h>
+# include <wchar.h>
+# include "libft/libft.h"
+# include <stdio.h>
 
 typedef struct	s_flags
 {
@@ -71,5 +76,6 @@ char 	*ft_ptoa(unsigned long int number, t_flags *tools);
 void    t_pui2(t_flags *tools, unsigned long long int num, int dis, char *dt_hold);
 void	ft_print_address(t_flags *tools, unsigned long long int number);
 char	*ft_uitoa(unsigned int nbr);
+void	ft_putwchar(wchar_t c);
 
 #endif

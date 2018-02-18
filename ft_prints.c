@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:11:08 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 19:10:07 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 17:41:07 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void    ft_print_prec(t_flags *tools)
         while (tools->prec-- >= 1)
             ft_putchar('0');
 }
+        
 void ft_print_address(t_flags *tools, unsigned long long int number)
 {
     if (tools->brand == 'x' && number != 0)//how am i gonna print the rest capital? also if prec is present it can make it so a space is in the front.
@@ -52,4 +53,9 @@ void ft_print_address(t_flags *tools, unsigned long long int number)
     else if (tools->brand == 'X' && number != 0) 
         write(1, "0X", 2);
     tools->hashtag = 0;
+}
+
+void ft_putwchar(wchar_t  c)
+{
+    write(1, &c, sizeof(wchar_t));
 }

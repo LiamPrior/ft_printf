@@ -6,15 +6,21 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 13:37:07 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 17:02:23 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <locale.h>
+#include <stdlib.h>
+#include <stddef.h>
+
 // i still need to wchar nd  and test h and hh z and j!!!!!!!!!!!!!!!!!!!!!!!
 int main()
 {
-// 	    char *swag = "swag";
+
+	setlocale(LC_ALL, "");
+	    // char *swag = "swag";
 //     // printf("string 0 padding = [%05s]\n", "swag");
 //     // printf("%.2s\n", "paulina")
 //     // printf("%c\n", 'c');
@@ -53,7 +59,7 @@ int main()
 //     // ft_printf("[%05d]\n", 10);
 
 
-// 	//---------------------- d and i -------------------------------
+	//---------------------- d and i -------------------------------
 // 	printf("' ':				[% d]\n", -12);
 // 	ft_printf("' ':				[% d]\n", -12);
 // 	printf("10.6:				[% 10.6d]\n", 12);
@@ -258,16 +264,16 @@ int main()
 // 	ft_printf("prec 0:				[%.0u]\n", 0);
 // 	printf("prec 0:				[%.0u]\n", 0);
 
-    // ft_printf("[%05.2u]\n", 1);
-    // printf("[%05.2u]\n", 1);
-    // ft_printf("[%05.u]\n", 1);
-    // printf("[%05.u]\n", 1);
-    // ft_printf("[%05.1u]\n", 1);
-    // printf("[%05.1u]\n", 1);
-    // ft_printf("[%05.0u]\n", 1);
-    // printf("[%05.0u]\n", 1);
-    // ft_printf("%x\n", 21);
-    // printf("%x\n", 21);
+//     ft_printf("[%05.2u]\n", 1);
+//     printf("[%05.2u]\n", 1);
+//     ft_printf("[%05.u]\n", 1);
+//     printf("[%05.u]\n", 1);
+//     ft_printf("[%05.1u]\n", 1);
+//     printf("[%05.1u]\n", 1);
+//     ft_printf("[%05.0u]\n", 1);
+//     printf("[%05.0u]\n", 1);
+//     ft_printf("%x\n", 21);
+//     printf("%x\n", 21);
     
 //     // printf("\n switch \n\n");
 
@@ -389,7 +395,7 @@ int main()
 //     // printf("[%10.d]", 10);
 // 	// printf("x = [%hx]\n X = [%hX]\n u = [%hu]\n o = [%ho]\n O = [%hO]\n", swag, swag, swag, swag, swag);
     
-// //--------------------------------o, O-----------------------------------
+// // //--------------------------------o, O-----------------------------------
 // 	// unsigned long long nb = 18446744073709551615;
 // 	ft_printf("normal = [%o]\n", 100);
 // 	printf("normal = [%o]\n", 100);
@@ -434,12 +440,12 @@ int main()
 
 
 
-//    // ------------------------------ p --------------------------
+// //    // ------------------------------ p --------------------------
     
-//     // #!
-//     // . it handles a . but no numbers and when its just a dot it doesnt do anything to it!!!!
-//     // 0 padding!
-//     // ' '!
+// //     // #!
+// //     // . it handles a . but no numbers and when its just a dot it doesnt do anything to it!!!!
+// //     // 0 padding!
+// //     // ' '!
 
 //     printf("normal =        [%p]\n", swag);
 //     ft_printf("normal =        [%p]\n", swag);
@@ -452,7 +458,7 @@ int main()
 //     printf("width -20 =     [%-20p]\n", swag);
 // 	ft_printf("width -20 =     [%-20p]\n", swag);
 	
-// 	//-------------------------%%----------------------------
+// // 	//-------------------------%%----------------------------
 // 	//so it doesnt handle space!
 // 	//doesnt handle #!
 // 	//doesbnt handle orecision!
@@ -501,7 +507,7 @@ int main()
 
 
 
-// 	// ----------------------------D-----------------------------------
+// // 	// ----------------------------D-----------------------------------
 	
 // 	printf("%D\n", 0);
 // 	ft_printf("%D\n", 0);
@@ -523,16 +529,16 @@ int main()
 // 	ft_printf("%lD\n", 4294967295);
 	
 	
-// 	//-----------------------multiple shit------------------------
-//  char *swag = "swag";
+// // 	//-----------------------multiple shit------------------------
+// //  char *swag = "swag";
 // 	printf("[s%s][p%p][d%d][D%D][i%i][o%o][O%O][u%u][U%U][x%x][X%X][c%c]\n", "swag", swag, 100, 100, 100, 100, 100, 100, 100, 100, 100, 'a');
 // 	ft_printf("[s%s][p%p][d%d][D%D][i%i][o%o][O%O][u%u][U%U][x%x][X%X][c%c]\n", "swag", swag, 100, 100, 100, 100, 100, 100, 100, 100, 100, 'a');
-	// printf("their	p = [%p] d = [%d] D = [%D] i = [%i] o = [%o] O = [%O] u = [%u] U = [%U] x = [%x] X = [%X]\n", swag, 100, 100, 100, 100, 100, 100, 100, 100, 100);
-	// ft_printf("mine	p = [%p] d = [%d] D = [%D] i = [%i] o = [%o] O = [%O] u = [%u] U = [%U] x = [%x] X = [%X]\n", swag, 100, 100, 100, 100, 100, 100, 100, 100, 100);
-// 	// printf("u = [%U]\n", 100);
-// 	// ft_printf("u = [%u]\n", 100);
-// 	// printf("%D\n", -1);
-// 	// ft_printf("%D\n", -1);
+// 	// printf("their	p = [%p] d = [%d] D = [%D] i = [%i] o = [%o] O = [%O] u = [%u] U = [%U] x = [%x] X = [%X]\n", swag, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+// 	// ft_printf("mine	p = [%p] d = [%d] D = [%D] i = [%i] o = [%o] O = [%O] u = [%u] U = [%U] x = [%x] X = [%X]\n", swag, 100, 100, 100, 100, 100, 100, 100, 100, 100);
+// // 	// printf("u = [%U]\n", 100);
+// // 	// ft_printf("u = [%u]\n", 100);
+// // 	// printf("%D\n", -1);
+// // 	// ft_printf("%D\n", -1);
 
 	// unsigned short y = 0;
 	// unsigned char c = 0;
@@ -560,7 +566,41 @@ int main()
 	// ft_printf("Lalalala, 100%% des gens qui parlent à Ly adorent Ly. Ou Presque\n");
 	// printf("Lalalala, %d%% d %s.\n", 100, "Ly");
 	// ft_printf("Lalalala, %d%% d %s.\n", 100, "Ly");
-	printf("Lalalala, %d%% des gens qui parlent à Ly adorent %s. Ou Presque.weird %lx\n", 100, "LY", 140734048821948);
-	ft_printf("Lalalala, %d%% des gens qui parlent à Ly adorent %s. Ou Presque.weird %lx\n", 100, "Ly", 140734048821948);
+	// printf("Lalalala, %d%% des gens qui parlent à Ly adorent %s. Ou Presque.weird %lx\n", 100, "LY", 140734048821948);
+	// ft_printf("Lalalala, %d%% des gens qui parlent à Ly adorent %s. Ou Presque.weird %lx\n", 100, "Ly", 140734048821948);
+	// Testing mix2 (%d %C %s %d %u %X %c)
+	// printf("%d %C %s %d %u %X %c\n", 0, L'D', "swag", 15, 15, 15, 'p');
+	// ft_printf("%d %s %d %u %X %c\n", 0, L'D', "swag", 15, 15, 15, 'p');
+
+
+//-------------------------Wchars and Wchar strs------------------------
+	//STR doesnt handle prec numbers but it doesnt print anything with just a .!
+	//Char doesnt handle prec numbers but does accept . but doesnt do anything!
+	//char Doesnt hadnle #!
+	//char doesnt handle space!
+	//char Doesnt handle 0 paadding
+	//char doesnt handle +!
+
+	printf("normal = [%C]\n", L'갔');
+	ft_printf("normal = [%C]\n", L'갔');
+	// printf("width 20 prec . = %20.C\n", L'갔');
+	// ft_printf("width 20 prec . = %20.C\n", L'갔');
+	// // printf("zero padding width 20 = %020C\n", L'갔');
+	// // ft_printf("zero padding width 20 = %020C\n", L'갔');
+	// // printf("space and width 20 = % 20C\n", L'갔');
+	// // ft_printf("space and width 20 = % 20C\n", L'갔');
+	// printf("width 20 = %20C\n", L'갔');
+	// ft_printf("width 20 = %20C\n", L'갔');
+	// printf("width -20 = %-20C\n", L'갔');
+	// ft_printf("width -20 = %-20.C\n", L'갔');
+	// // printf("Hashtag = %#C\n", L'갔');
+	// // ft_printf("Hashtag = %#C\n", L'갔');
+	// // printf("space = % C\n", L'갔');
+	// // ft_printf("space = % C\n", L'갔');
+	// // printf("plus = %+C\n", L'갔');
+	// // ft_printf("plus = %+C\n", L'갔');
+	// // printf("[%20.S]\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
+	// // ft_printf("[%20.S]\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
+		
 	return (0);
 }
