@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 20:40:22 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 22:12:40 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -580,27 +580,46 @@ int main()
 	//char doesnt handle space!
 	//char Doesnt handle 0 paadding
 	//char doesnt handle +!
-
-	printf("normal = [%C]\n", L'갔');
-	ft_printf("normal = [%C]\n", L'갔');
-	// printf("width 20 prec . = %20.C\n", L'갔');
+	//no zero padding str
+	//no space str;
+	//no # str
+	//no plus str
+	
+	// printf("normal = [%S]\n", L"갔갔");
+	// ft_printf("normal = [%C]\n", L'갔');
+	// printf("width 20 prec . = [%20.S]\n", L"갔갔");
 	// ft_printf("width 20 prec . = %20.C\n", L'갔');
-	// // printf("zero padding width 20 = %020C\n", L'갔');
+	// printf("zero padding width 20 = %020S\n", L"갔갔");
 	// // ft_printf("zero padding width 20 = %020C\n", L'갔');
-	// // printf("space and width 20 = % 20C\n", L'갔');
+	// printf("space and width 20 = % 20S\n", L"갔갔");
 	// // ft_printf("space and width 20 = % 20C\n", L'갔');
-	// printf("width 20 = %20C\n", L'갔');
+	// printf("width 20 = [%20S]\n", L"갔갔");
 	// ft_printf("width 20 = %20C\n", L'갔');
-	// printf("width -20 = %-20C\n", L'갔');
+	// printf("width -20 = [%-20S]\n", L"갔갔");
 	// ft_printf("width -20 = %-20.C\n", L'갔');
-	// // printf("Hashtag = %#C\n", L'갔');
+	// printf("Hashtag = %#S\n", L"갔갔");
 	// // ft_printf("Hashtag = %#C\n", L'갔');
-	// // printf("space = % C\n", L'갔');
+	// printf("space = % S\n", L"갔갔");
 	// // ft_printf("space = % C\n", L'갔');
-	// // printf("plus = %+C\n", L'갔');
+	// printf("plus = %+S\n", L"갔갔");
 	// // ft_printf("plus = %+C\n", L'갔');
-	// // printf("[%20.S]\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
+	// printf("[%20.S]\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
 	// // ft_printf("[%20.S]\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
-		
+	// printf("[%S]")
+
+	printf("normal =          [%C]\n", L'갔');
+	ft_printf("normal =          [%C]\n", L'갔');
+
+
+	printf("normal =          [%S]\n", L"갔@∆");
+	ft_printf("normal =          [%S]\n", L"갔@∆");
+	// printf("width 20 prec . = [%20.S]\n", L"갔갔");
+	// ft_printf("width 20 prec . = [%20.S]\n", L"갔갔");
+	// printf("width 20 =        [%20S]\n", L"갔갔");
+	// ft_printf("width 20 =        [%20S]\n", L"갔갔");
+	// printf("width -20 =       [%-20S]\n", L"갔갔");
+	// ft_printf("width -20 =       [%-20S]\n", L"갔갔");
+	// printf("width 20 prec . = [%20.S]\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
+	// ft_printf("width 20 prec . = [%20.S]\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
 	return (0);
 }

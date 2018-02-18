@@ -6,56 +6,11 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:00:03 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 20:35:31 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 22:11:26 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// void	print_wchar(t_flags *bag, va_list ap)
-// {
-// 	char	*x;
-// 	wchar_t	wx;
-
-// 	wx = va_arg(ap, wint_t);
-// 	x = convert_uni((wchar_t)(wx));
-// 	LEN = 1;
-// 	parse(bag);
-// 	while (MINUS == false && WIDTH-- > 0)
-// 		ZERO == true ? ft_putchar('0', bag) : ft_putchar(' ', bag);
-// 	ft_putstr(x, bag);
-// 	while (WIDTH-- > 0)
-// 		ft_putchar(' ', bag);
-// 	free(x);
-// }
-
-// int		ft_unichar(va_list ap, t_options *info)
-// {
-// 	int c;
-
-// 	c = va_arg(ap, wchar_t);
-// 	if (c < 0x80)
-// 		ft_putchar(c);
-// 	else if (c < 0x800)
-// 	{
-// 		ft_putchar(0xC0 | (c >> 6));
-// 		ft_putchar(0x80 | (c & 0x3F));
-// 	}
-// 	else if (c < 0x10000)
-// 	{
-// 		ft_putchar(0xE0 | (c >> 12));
-// 		ft_putchar(0x80 | (c >> 6 & 0x3F));
-// 		ft_putchar(0x80 | (c & 0x3F));
-// 	}
-// 	else if (c < 0x200000)
-// 	{
-// 		ft_putchar(0xF0 | (c >> 18));
-// 		ft_putchar(0x80 | (c >> 12 & 0x3F));
-// 		ft_putchar(0x80 | (c >> 6 & 0x3F));
-// 		ft_putchar(0x80 | (c & 0x3F));
-// 	}
-// 	(void)info;
-// 	return (1);
-// }
 
 // char	*convert_uni(wchar_t wide)
 // {
@@ -63,11 +18,11 @@
 
 // 	new = ft_strnew(5);
 // 	if (wide < 0x80)
-// 		new[0] = ( ) & 0x7F) | 0x00;
+// 		new[0] = ((wide >> 0) & 0x7F) | 0x00;
 // 	else if (wide < 0x800)
 // 	{
 // 		new[0] = ((wide >> 6) & 0x1F) | 0xC0;
-// 		new[1] = ((wide >> 0) & 0x3F) | 0x80;//good prefix
+// 		new[1] = ((wide >> 0) & 0x3F) | 0x80;
 // 	}
 // 	else if (wide < 0x10000)
 // 	{
@@ -84,29 +39,34 @@
 // 	}
 // 	return (new);
 // }
-//ask pola what is the point of each byte after the convertion!
-void ft_unitoa(wint_t wide)
+
+char *ft_unitoa(wint_t wide)
 {
+    // printf("IM OVER HERE NOW!\n");
+    char *fake_wide;
+
+    fake_wide = ft_strnew(5);
     if (wide < 0x80)
-        ft_putchar(wide);
+        fake_wide[0] = wide;
     else if (wide < 0x800)
     {
-        ft_putchar(((wide >> 6) & 0x1F) | 0xC0);
-        ft_putchar(((wide >> 6) & 0x3F) | 0x80);
+        fake_wide[0] = (((wide >> 6) & 0x1F) | 0xC0);
+        fake_wide[1] = (((wide >> 6) & 0x3F) | 0x80);
     }
     else if (wide < 0x10000)
     {
-        ft_putchar(((wide >> 12) & 0x0F) | 0xE0);
-		ft_putchar(((wide >> 6) & 0x3F) | 0x80);
-		ft_putchar(((wide >> 0) & 0x3F) | 0x80);
+        fake_wide[0] = (((wide >> 12) & 0x0F) | 0xE0);
+		fake_wide[1] = (((wide >> 6) & 0x3F) | 0x80);
+		fake_wide[2] = (((wide >> 0) & 0x3F) | 0x80);
     }
     else if (wide < 0x10FFFF)
     {
-        ft_putchar(((wide >> 18) & 0x07) | 0xF0);
-        ft_putchar(((wide >> 12) & 0x3F) | 0x80);
-        ft_putchar(((wide >> 6) & 0x3F) | 0x80);
-        ft_putchar(((wide >> 0) & 0x3F) | 0x80);
+        fake_wide[0] = (((wide >> 18) & 0x07) | 0xF0);
+        fake_wide[1] = (((wide >> 12) & 0x3F) | 0x80);
+        fake_wide[2] = (((wide >> 6) & 0x3F) | 0x80);
+        fake_wide[3] = (((wide >> 0) & 0x3F) | 0x80);
     }
+    return (fake_wide);
 }
 
 void ft_print_wchar(t_flags *tools, va_list ap)
@@ -117,20 +77,67 @@ void ft_print_wchar(t_flags *tools, va_list ap)
     if (tools->negative == 0)
         while (tools->width-- > 0)
             ft_putchar(' ');
-    ft_unitoa(c);
+    ft_putstr(ft_unitoa(c));
     if (tools->negative == 1)
         while (tools->width-- >= 0)
             ft_putchar(' ');
 }
+// void	print_wchar_str(t_flags *bag, va_list ap)
+// {
+// 	char	*s;
+// 	wchar_t	*ws;
 
+// 	ws = (wchar_t *)va_arg(ap, wchar_t *);
+// 	if (if_unicode(bag, ws) == -1)
+// 		return ;
+// 	s = *ws == '\0' ? "\0" : convert_uni(*ws++);
+// 	if (ws != NULL && ft_wstrlen(ws) == -1 && ARGUMENT != 7)
+// 	{
+// 		free(s);
+// 		return ;
+// 	}
+// 	while (ws != NULL && *ws != '\0' && ARGUMENT == 7)
+// 		s = ft_strjoin(s, convert_uni(*ws++));
+// 	LEN = s == NULL ? 0 : ft_strlen(s);
+// 	parse(bag);
+// 	while (MINUS == false && WIDTH-- > 0)
+// 		ZERO == true ? ft_putchar('0', bag) : ft_putchar(' ', bag);
+// 	while (LEN-- > 0 && *s != '\0')
+// 		ft_putchar(*s++, bag);
+// 	while (WIDTH-- > 0)
+// 		ft_putchar(' ', bag);
+// }
 void ft_print_wchar_str(t_flags *tools, va_list ap)
 {
-   wchar_t *i;
-   
+    wchar_t *w_str;
+    char *str;
 
-//    char * == str;
-//    wchar_t * == wstr_t;
+    w_str = (wchar_t *)va_arg(ap, wchar_t *);
+    //null checker!
+    str = ft_unitoa(*w_str++);
 
-    i = va_arg(ap, wchar_t*);
-    tools->prec = 0;
+    // str = *w_str == '\0' ? "\0" : ft_unitoa(*w_str++);
+	// if (w_str != NULL && ft_wstrlen(w_str) == -1 && tools->arg != 7)
+	// {
+	// 	free(str);
+	// 	return ;
+	// }
+    // printf("HERE1\n");
+    while (*w_str != '\0')// && tools->arg == 7)
+    {
+        str = ft_strjoin(str, ft_unitoa(*w_str++));
+        // printf("str: [%s]\n", str);
+    }
+    // printf("HERE2\n");    
+    tools->len = ft_strlen(str);
+    tools->width -= tools->len;
+    if (tools->negative == 0)
+        while (tools->width-- > 0)
+            ft_putchar(' ');
+    // printf("HERE3\n");
+    while (*str)
+        ft_putchar(*str++);
+    if (tools->negative == 1)
+        while (tools->width-- >= 0)
+            ft_putchar(' ');
 }
