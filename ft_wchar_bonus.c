@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:00:03 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 17:41:17 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 17:44:46 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@
 // }
 void ft_print_wchar(t_flags *tools, va_list ap)
 {
-    wchar_t c;
+    wint_t c;
 
-    c = va_arg(ap, wchar_t);
+    c = va_arg(ap, wint_t);
     if (tools->negative == 0)
         while (tools->width-- > 0)
             ft_putchar(' ');

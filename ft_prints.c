@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:11:08 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 17:41:07 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 17:45:22 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void ft_print_address(t_flags *tools, unsigned long long int number)
     tools->hashtag = 0;
 }
 
-void ft_putwchar(wchar_t  c)
+void ft_putwchar(wint_t  c)
 {
-    write(1, &c, sizeof(wchar_t));
+    write(1, &c, sizeof(wint_t));
 }
