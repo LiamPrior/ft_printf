@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:00:03 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 22:11:26 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 22:37:16 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,13 +116,9 @@ void ft_print_wchar_str(t_flags *tools, va_list ap)
     //null checker!
     str = ft_unitoa(*w_str++);
 
-    // str = *w_str == '\0' ? "\0" : ft_unitoa(*w_str++);
-	// if (w_str != NULL && ft_wstrlen(w_str) == -1 && tools->arg != 7)
-	// {
-	// 	free(str);
-	// 	return ;
-	// }
-    // printf("HERE1\n");
+	if (ft_strlen(str) > 1 && tools->arg != 7)
+		return ;
+
     while (*w_str != '\0')// && tools->arg == 7)
     {
         str = ft_strjoin(str, ft_unitoa(*w_str++));
@@ -135,8 +131,7 @@ void ft_print_wchar_str(t_flags *tools, va_list ap)
         while (tools->width-- > 0)
             ft_putchar(' ');
     // printf("HERE3\n");
-    while (*str)
-        ft_putchar(*str++);
+    ft_putstr(str);
     if (tools->negative == 1)
         while (tools->width-- >= 0)
             ft_putchar(' ');
