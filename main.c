@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 22:28:00 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 22:45:19 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -611,11 +611,14 @@ int main()
 	ft_printf("normal =          [%C]\n", L'갔');
 	printf("normal k=          [%C]\n", L'갔');
 	ft_printf("normal k=          [%kC]\n", L'갔');
-
+	printf("normal =          [%S]\n", L"@@");
+	ft_printf("normal =          [%S]\n", L"@@");
+	printf("normal =          [%ls]\n", L"@@");
+	ft_printf("normal =          [%ls]\n", L"@@");
 	printf("normal =          [%S]\n", L"갔@∆");
 	ft_printf("normal =          [%S]\n", L"갔@∆");
-	printf("normal =          [%S]\n", L"Pola");
-	ft_printf("normal =          [%S]\n", L"Pola");
+	printf("normal =          [%S]\n", L"갔@∆");
+	ft_printf("normal =          [%S]\n", L"갔@∆");
 	// printf("width 20 prec . = [%20.S]\n", L"갔갔");
 	// ft_printf("width 20 prec . = [%20.S]\n", L"갔갔");
 	// printf("width 20 =        [%20S]\n", L"갔갔");

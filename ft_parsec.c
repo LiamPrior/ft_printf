@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 15:36:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 22:31:27 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 22:44:51 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ void ft_check_type2(char format, t_flags *tools, va_list ap)
 
 void ft_check_type(char format, t_flags *tools, va_list ap)
 {
-	if (format == 's')
+	if (format == 's' && tools->arg != 4)
 	{
 		tools->brand = format;
 		ft_print_string(tools, ap);
 	}
-	else if (format == 'S' || (format == 'C' && tools->arg == 7))
+	else if (format == 'S' || (format == 'C' && tools->arg == 7) || format == 's')
 	{
 		tools->brand = format;
 		if (format == 'C')
 			ft_print_wchar(tools, ap);
-		else if (format == 'S')
+		else if (format == 'S' || format == 's')
 			ft_print_wchar_str(tools, ap);
 	}
 	else if (format == 'p')
