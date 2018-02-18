@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 13:35:54 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 17:55:13 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int	ft_printf(const char *format, ...)
 }
 
 /*
+**L is used to create wchar_t literals.
 **char	1 byte	-128 to 127 or 0 to 255
 **unsigned char	1 byte	0 to 255
 **signed char	1 byte	-128 to 127
