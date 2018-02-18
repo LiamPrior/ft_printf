@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:19:26 by lprior	           #+#    #+#             */
-/*   Updated: 2018/02/17 17:41:01 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 17:48:46 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ char 	*ft_ptoa(unsigned long int number, t_flags *tools);
 void    t_pui2(t_flags *tools, unsigned long long int num, int dis, char *dt_hold);
 void	ft_print_address(t_flags *tools, unsigned long long int number);
 char	*ft_uitoa(unsigned int nbr);
-void	ft_putwchar(wchar_t c);
+void	ft_putwchar(wint_t c);
 
 #endif
