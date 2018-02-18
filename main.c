@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 17:46:50 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 20:30:29 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -581,8 +581,8 @@ int main()
 	//char Doesnt handle 0 paadding
 	//char doesnt handle +!
 
-	printf("normal = [%C]\n", L'@');
-	ft_printf("normal = [%C]\n", L'@');
+	printf("normal = [%C]\n", L'갔');
+	ft_printf("normal = [%kC]\n", L'갔');
 	// printf("width 20 prec . = %20.C\n", L'갔');
 	// ft_printf("width 20 prec . = %20.C\n", L'갔');
 	// // printf("zero padding width 20 = %020C\n", L'갔');

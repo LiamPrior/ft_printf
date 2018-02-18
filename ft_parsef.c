@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 14:21:44 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/09 13:55:44 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 20:33:21 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void ft_parse_flags2(char *format, int *i, t_flags *tools)
 		else if (format[*i] == 'j')
 			ft_check_fwap(format, i, tools);
 		else if (format[*i] == 'z')
+			ft_check_fwap(format, i, tools);
+		else if (format[*i] == 'k')
 			ft_check_fwap(format, i, tools);
 	}
 }

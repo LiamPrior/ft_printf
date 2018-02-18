@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:12:06 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/15 15:40:01 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 20:29:23 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void    ft_check_flags(char *format, int *i, t_flags *tools)
 void ft_check_args(char *format, int *i, t_flags *tools)
 {
     while (format[*i] != '\0' && (format[*i] == 'h' || format[*i] == 'l' ||
-            format[*i] == 'z' || format[*i] == 'j'))
+            format[*i] == 'z' || format[*i] == 'j' || format[*i] == 'k'))
             {
                 if (format[*i] == 'z')
                     tools->arg = 1;
@@ -74,6 +74,8 @@ void ft_check_args(char *format, int *i, t_flags *tools)
                     else
                         tools->arg = 4;
                 }
+                else if (format[*i] == 'k')
+                    tools->arg = 7;
                 (*i)++;
             }
 }
