@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:00:03 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/17 20:15:53 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/17 20:35:31 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void ft_unitoa(wint_t wide)
 
 void ft_print_wchar(t_flags *tools, va_list ap)
 {
-    wint_t c;
+    wchar_t c;
 
     c = va_arg(ap, wint_t);
     if (tools->negative == 0)
