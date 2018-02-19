@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 16:24:12 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 17:27:56 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_print_string(t_flags *tools, va_list ap)
 	char *string;
 
 	string = va_arg(ap, char *);
+	if (ft_print_color(string) == 1)
+		ft_putstr(string);
 	if (string == NULL)
 		string = "(null)";
 	tools->len = ft_strlen(string);

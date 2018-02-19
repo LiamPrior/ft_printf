@@ -6,11 +6,31 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:00:03 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 17:01:29 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 17:27:05 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		ft_print_color(char *str)
+{
+	if (str == NORMAL)
+		return (1);
+	else if (str == RED)
+		return (1);
+	else if (str == GREEN)
+		return (1);
+	else if (str == YELLOW)
+		return (1);
+	else if (str == BLUE)
+		return (1);
+	else if (str == MAGNETA)
+		return (1);
+	else if (str == CYAN)
+		return (1);
+	else
+		return (0);
+}
 
 char	*ft_unitoa(wint_t wide)
 {

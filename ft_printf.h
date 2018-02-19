@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 00:01:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 01:30:05 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 17:28:03 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@
 # include <wchar.h>
 # include "libft/libft.h"
 # include <stdio.h>
+
+# define NORMAL        "\x1B[0m"
+# define RED        "\x1B[31m"
+# define GREEN        "\x1B[32m"
+# define YELLOW        "\x1B[33m"
+# define BLUE        "\x1B[34m"
+# define MAGNETA    "\x1B[35m"
+# define CYAN        "\x1B[36m"
 
 # define ULL	unsigned long long int
 # define LL		long long int
@@ -80,5 +88,6 @@ void			ft_pui2(t_flags *tools, ULL num, int dis, char *dt);
 void			ft_print_address(t_flags *tools, unsigned long long int number);
 char			*ft_uitoa(unsigned int nbr);
 char			*ft_unitoa(wint_t letter);
+int				ft_print_color(char *str);
 
 #endif
