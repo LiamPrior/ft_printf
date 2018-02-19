@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:00:03 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 16:21:03 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 16:54:55 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_print_wchar_str(t_flags *tools, va_list ap)
 {
 	wchar_t	*w_str;
 	char	*str;
-
+	
 	w_str = (wchar_t *)va_arg(ap, wchar_t *);
 	str = ft_unitoa(*w_str++);
 	if (ft_strlen(str) > 1 && tools->arg != 7)
@@ -79,6 +79,6 @@ void	ft_print_wchar_str(t_flags *tools, va_list ap)
 	if (tools->prec != -100)
 		ft_print_putstr(str, &(tools->retrn));
 	if (tools->negative == 1)
-		while (tools->width-- >= 0)
+		while (tools->width-- > 0)
 			ft_print_putchar(' ', &(tools->retrn));
 }
