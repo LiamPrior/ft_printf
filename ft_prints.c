@@ -6,16 +6,11 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:11:08 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 01:28:22 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 14:23:51 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// void	add_result(t_flags *tools)
-// {
-// 	tools->retrn += 1;
-// }
 
 void	ft_print(int start, int end, char *format, int *res)
 {

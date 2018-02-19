@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 19:29:14 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 02:02:05 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 14:27:16 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_parse_unsigned_int_tools(t_flags *tools, unsigned long long int num)
 		tools->width -= 2;
 	if ((tools->brand == 'o' || tools->brand == 'O') && tools->hashtag == 1)
 		tools->width -= 1;
-	if (tools->prec > 0 && (tools->len < tools->prec)) //tools->brand == 'x' ||  tools->brand == 'X'
+	if (tools->prec > 0 && (tools->len < tools->prec))
 		tools->width -= tools->prec;
 	else if (tools->prec == -100 || tools->prec == 0)
 		tools->width -= 1;
@@ -69,3 +69,9 @@ void	ft_parse_unsigned_int_tools(t_flags *tools, unsigned long long int num)
 	if (tools->positive == 1)
 		tools->width -= 1;
 }
+
+/*
+**if (tools->prec > 0 && (tools->len < tools->prec)) //tools->brand == 'x'
+**||  tools->brand == 'X'
+**tools->width -= tools->prec;
+*/

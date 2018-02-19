@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 16:30:54 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 01:41:22 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 14:24:48 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,6 @@ int		ft_printf(const char *format, ...)
 	ft_parse_format_print(((char *)format), ap, tools);
 	return (tools->retrn);
 }
-// int		ft_printf(const char *format, ...)
-// {
-// 	t_flags		tools;
-// 	va_list		ap;
-
-// 	va_start(ap, format);
-// 	ft_parse_format_print(((char *)format), ap, &tools);
-// 	return (tools->retrn);
-// }
 
 /*
 ** L is used to create wchar_t literals.

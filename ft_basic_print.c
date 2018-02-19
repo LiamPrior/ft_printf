@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 01:32:09 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 16:21:56 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,9 @@ void	ft_print_char(t_flags *tools, va_list ap)
 {
 	unsigned char leter;
 
+	// printf("width = [%d]\n", tools->width);
+	if (tools->brand == 'C' && tools->prec == -100)
+		tools->width -= 1;
 	leter = va_arg(ap, int);
 	ft_parse_char_tool(tools);
 	while (tools->negative == 0 && tools->width-- > 0)

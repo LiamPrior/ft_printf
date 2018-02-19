@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:00:03 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 01:31:22 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 16:21:03 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,12 @@ char	*ft_unitoa(wint_t wide)
 void	ft_print_wchar(t_flags *tools, va_list ap)
 {
 	wchar_t	c;
+	char *str;
 
 	c = va_arg(ap, wint_t);
+	str = ft_unitoa(c);
+	tools->len = ft_strlen(str);
+	tools->width -= tools->len;
 	if (tools->negative == 0)
 		while (tools->width-- > 0)
 			ft_print_putchar(' ', &(tools->retrn));
@@ -66,11 +70,14 @@ void	ft_print_wchar_str(t_flags *tools, va_list ap)
 	while (*w_str != '\0')
 		str = ft_strjoin(str, ft_unitoa(*w_str++));
 	tools->len = ft_strlen(str);
+	if (tools->prec == -100)
+		tools->len = 0;
 	tools->width -= tools->len;
 	if (tools->negative == 0)
 		while (tools->width-- > 0)
 			ft_print_putchar(' ', &(tools->retrn));
-	ft_print_putstr(str, &(tools->retrn));
+	if (tools->prec != -100)
+		ft_print_putstr(str, &(tools->retrn));
 	if (tools->negative == 1)
 		while (tools->width-- >= 0)
 			ft_print_putchar(' ', &(tools->retrn));
