@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:11:08 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 14:23:51 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 19:33:25 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	ft_print_zeros(t_flags *tools)
 			ft_print_putchar('0', &(tools->retrn));
 		else if (tools->zeros == 0)
 			ft_print_putchar(' ', &(tools->retrn));
+		if (tools->width == 0)
+			tools->width = -100;
 	}
 }
 

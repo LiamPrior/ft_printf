@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:23:13 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 17:27:56 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 20:10:44 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_print_int2(t_flags *tools, long long int number, int dis)
 	{
 		if (tools->zeros == 1)
 			ft_print_putchar('0', &(tools->retrn));
-		else if (tools->prec == -100)
+		else if ((IFPW) || (tools->prec == -100 && number != 0) || (IFWP))
 			ft_print_putchar(' ', &(tools->retrn));
 	}
 	else

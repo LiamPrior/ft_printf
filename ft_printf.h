@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 00:01:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 17:56:27 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 20:06:57 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 
 # define ULL	unsigned long long int
 # define LL		long long int
+# define IFWP	tools->width == -101 && tools->prec == -2
+# define IFPW	tools->width == -101 && tools->prec == -100
 
 typedef struct	s_flags
 {
