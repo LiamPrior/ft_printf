@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 14:21:44 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 16:53:53 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 17:00:58 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ void	ft_check_fwap(char *format, int *i, t_flags *tools)
 	while (format[*i] == '-' || format[*i] == '+' || format[*i] == ' ' ||
 			format[*i] == '#' || format[*i] == '0')
 		ft_check_flags(format, i, tools);
-	// printf("formmmmmmmmmm = [%c]\n", format[*i]);
 	ft_check_args(format, i, tools);
 	ft_check_width(format, i, tools);
 	ft_check_prec(format, i, tools);
 	ft_check_args(format, i, tools);
-
 }
 
 void	ft_parse_flags2(char *format, int *i, t_flags *tools)
@@ -45,7 +43,6 @@ void	ft_parse_flags2(char *format, int *i, t_flags *tools)
 void	ft_parse_flags(char *form, int *i, t_flags *tools, va_list ap)
 {
 	(*i)++;
-	// printf("formmmm = [%c]\n", form[*i]);
 	if (form[*i] != '\0')
 	{
 		if (form[*i] == '.')
@@ -66,5 +63,4 @@ void	ft_parse_flags(char *form, int *i, t_flags *tools, va_list ap)
 			ft_parse_flags2(form, i, tools);
 	}
 	ft_check_type(form[*i], tools, ap);
-	// printf("brand = [%c]\narg = [%d]\n", tools->brand, tools->arg);
 }

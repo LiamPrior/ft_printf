@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 15:36:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 16:52:25 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 17:00:21 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_check_type2(char format, t_flags *tools, va_list ap)
 
 void	ft_check_type(char form, t_flags *tools, va_list ap)
 {
-	// printf("form = [%c]\n", form);
 	if (form == 's' && tools->arg != 4)
 	{
 		tools->brand = form;
