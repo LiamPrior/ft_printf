@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 00:01:04 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 17:28:03 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 17:56:27 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void			ft_print_address(t_flags *tools, unsigned long long int number);
 char			*ft_uitoa(unsigned int nbr);
 char			*ft_unitoa(wint_t letter);
 int				ft_print_color(char *str);
+void			ft_print_binary(va_list ap);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:34:20 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 17:35:27 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 18:08:05 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -637,8 +637,8 @@ int main()
 // 	ft_printf("lots of stuff = [%k20S]\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
 // 	printf("normal no k =          [%C]\n", L'갔');
 // 	ft_printf("normal no k =          [%C]\n", L'갔');
-// 	printf("normal k =          [%C]\n", L'갔');
-// 	ft_printf("normal k =          [%kC]\n", L'갔');
+	// printf("normal k =          [%C ]\n", L'😨');
+	// ft_printf("normal k =          [%kC ]\n", L'👼');
 // 	printf("normal S no k =          [%S]\n", L"@@");
 // 	ft_printf("normal S no k =          [%S]\n", L"@@");
 // 	printf("ls        =          [%ls]\n", L"@@");
@@ -657,8 +657,12 @@ int main()
 // 	ft_printf("width -20 no k =       [%-20S]\n", L"갔갔");
 // 	printf("width 20 prec . no k = [%20.S]\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
 // 	ft_printf("width 20 prec . no k = [%20.S]\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
-	printf("%s liam %s\n", YELLOW, "swag");
-	ft_printf("%s liam %s\n", YELLOW, "swag");
+	// printf("%s liam %s\n", YELLOW, "swag");
+	// ft_printf("%s liam %s\n", YELLOW, "swag");
 
+
+
+
+	ft_printf("%b\n", 1000);
 	return (0);
 }

@@ -6,11 +6,34 @@
 /*   By: lprior <lprior@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:00:03 by lprior            #+#    #+#             */
-/*   Updated: 2018/02/18 17:27:05 by lprior           ###   ########.fr       */
+/*   Updated: 2018/02/18 18:24:10 by lprior           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_print_binary(va_list ap)
+{
+	char					*print;
+	int						i;
+	unsigned long long int	number;
+
+	i = 0;
+	print = ft_memalloc(33);
+	print = ft_memset(print, '0', 32);
+	number = va_arg(ap, unsigned long long int);
+	while (number)
+	{
+		print[i++] = (number % 2) + 48;
+		number /= 2;
+	}
+	ft_strrev(print);
+	i = 0;
+	while (print[i] == '0' && print[i])
+		i++;
+	print += (i - (i % 8));
+	ft_putstr(print);
+}
 
 int		ft_print_color(char *str)
 {
@@ -42,7 +65,7 @@ char	*ft_unitoa(wint_t wide)
 	else if (wide < 0x800)
 	{
 		fake_wide[0] = (((wide >> 6) & 0x1F) | 0xC0);
-		fake_wide[1] = (((wide >> 6) & 0x3F) | 0x80);
+		fake_wide[1] = (((wide >> 0) & 0x3F) | 0x80);
 	}
 	else if (wide < 0x10000)
 	{
