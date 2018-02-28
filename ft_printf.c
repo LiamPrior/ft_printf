@@ -56,11 +56,13 @@ int		ft_printf(const char *format, ...)
 {
 	t_flags		*tools;
 	va_list		ap;
-
+	int		retrn;
 	va_start(ap, format);
 	tools = (t_flags *)malloc(sizeof(t_flags));
 	ft_parse_format_print(((char *)format), ap, tools);
-	return (tools->retrn);
+	retrn = tools->retrn;
+	free(tools);
+	return (retnr);
 }
 
 /*
